@@ -169,61 +169,84 @@ public class HUDGUIManager : MonoBehaviour
 
 	private void InitHUD()
 	{
-		// Calculate safe area offsets for notched devices
-		float topSafeOffset = GetSafeAreaTopOffset();
-		float rightSafeOffset = GetSafeAreaRightOffset();
-		
-		// Adaptive positioning based on device type
-		float pauseTopOffset = 0.01f + topSafeOffset;
-		float pauseLeftOffset = 0.017f;
+		float topSafePercent = GetSafeAreaTopOffset();
 		
 		m_pauseButtonTexture = UIButton.create(GlobalGUIManager.The.m_hudToolkit, "PauseButton.png", "PauseButtonOver.png", 0, 0, m_HudDepth + 2);
 		m_pauseButtonTexture.highlightedTouchOffsets = new UIEdgeOffsets(30);
 		m_pauseButtonTexture.onTouchUpInside += onTouchUpInsidePauseButton;
-		m_pauseButtonTexture.positionFromTopLeft(pauseTopOffset, pauseLeftOffset);
+		m_pauseButtonTexture.positionFromTopLeft(0.01f + topSafePercent, 0.017f);
 		m_pauseButton = UIButton.create(GlobalGUIManager.The.m_hudToolkit, "PauseButton.png", "PauseButtonOver.png", 0, 0, m_HudDepth + 2);
 		m_pauseButton.highlightedTouchOffsets = new UIEdgeOffsets(30);
-		m_pauseButton.positionFromTopLeft(pauseTopOffset, pauseLeftOffset);
+		m_pauseButton.positionFromTopLeft(0.01f + topSafePercent, 0.017f);
 		m_pauseButton.onTouchUpInside += onTouchUpInsidePauseButton;
 		m_pauseButton.color = Color.clear;
 		
-		// Scale pause button based on screen density
-		float buttonScale = GetAdaptiveButtonScale();
-		m_pauseButton.scale = Vector3.one * buttonScale;
-		
-		// Score frame positioning with safe area consideration
-		float scoreTopOffset = topSafeOffset;
-		float scoreRightOffset = 0.01f + rightSafeOffset;
+		if (UI.scaleFactor < 4)
+		{
+			m_pauseButton.scale = Vector3.one * 1.5f;
+		}
 		
 		m_scoreFrame = GlobalGUIManager.The.m_hudToolkit.addSprite("ScorePlate.png", 0, 0, m_HudDepth + 2);
-		m_scoreFrame.positionFromTopRight(scoreTopOffset, scoreRightOffset);
+		m_scoreFrame.positionFromTopRight(0f + topSafePercent, 0.01f);
 		m_scoreText = GlobalGUIManager.The.defaultText.addTextInstance(PlayerData.RoundScore.ToString(), 0f, 0f, 1f, m_HudDepth + 1);
-		m_scoreText.textScale = 0.4f * GetAdaptiveFontScale();
-		
-		// Adaptive score text positioning
-		float scoreTextTopOffset = GetAdaptiveScoreTextPosition();
-		m_scoreText.positionFromTopRight(scoreTextTopOffset + topSafeOffset, 0.045f + rightSafeOffset);
+		m_scoreText.textScale = 0.4f;
+		m_scoreText.positionFromTopRight(0.025f + topSafePercent, 0.047f);
 		
 		m_multiplierLabel = GlobalGUIManager.The.defaultTextAlt.addTextInstance(string.Empty, 0f, 0f, 1f, m_HudDepth + 1);
 		m_multiplierLabel.parentUIObject = m_scoreFrame;
-		m_multiplierLabel.textScale = 0.45f * GetAdaptiveFontScale();
+		m_multiplierLabel.textScale = 0.45f;
 		
-		// Token icon and text with adaptive positioning
-		float tokenTopOffset = 0.075f + topSafeOffset;
+		if (GameManager.The.aspectRatio.x == 9f && GameManager.The.aspectRatio.y == 16f)
+		{
+			m_scoreText.positionFromTopRight(0.025f + topSafePercent, 0.045f);
+		}
+		if (Screen.height >= 1200)
+		{
+			m_scoreText.positionFromTopRight(0.018f + topSafePercent, 0.045f);
+		}
+		if (Screen.height >= 1824)
+		{
+			m_scoreText.positionFromTopRight(0.014f + topSafePercent, 0.045f);
+		}
+		if (Screen.height == 800)
+		{
+			m_scoreText.positionFromTopRight(0.016f + topSafePercent, 0.045f);
+		}
+		
 		m_tokenIcon = GlobalGUIManager.The.m_hudToolkit.addSprite("TokenPlate.png", 0, 0, m_HudDepth + 2);
-		m_tokenIcon.positionFromTopRight(tokenTopOffset, scoreRightOffset);
+		m_tokenIcon.positionFromTopRight(0.075f + topSafePercent, 0.01f);
 		m_tokenText = GlobalGUIManager.The.defaultText.addTextInstance(PlayerData.RoundTokens.ToString(), 0f, 0f, 1f, m_HudDepth + 1);
-		m_tokenText.textScale = 0.4f * GetAdaptiveFontScale();
+		m_tokenText.textScale = 0.4f;
+		if (GameManager.The.aspectRatio.x == 3f && GameManager.The.aspectRatio.y == 4f)
+		{
+			m_tokenText.positionFromTopRight(0.09f + topSafePercent, 0.09f);
+		}
+		else
+		{
+			m_tokenText.positionFromTopRight(0.09f + topSafePercent, 0.105f);
+		}
+		if (Screen.height >= 1200)
+		{
+			m_tokenText.positionFromTopRight(0.087f + topSafePercent, 0.09f);
+		}
+		if (Screen.height >= 1824)
+		{
+			m_tokenText.positionFromTopRight(0.085f + topSafePercent, 0.07f);
+		}
+		if (Screen.height == 800)
+		{
+			m_tokenText.positionFromTopRight(0.085f + topSafePercent, 0.08f);
+		}
 		
-		// Adaptive token text position based on device type
-		float tokenTextTop = GetAdaptiveTokenTextPosition();
-		float tokenTextRight = UIHelper.IsTablet() ? 0.09f : 0.105f;
-		m_tokenText.positionFromTopRight(tokenTextTop + topSafeOffset, tokenTextRight + rightSafeOffset);
-		
-		// Boss health frame with adaptive positioning
 		m_bossHealthFrame = GlobalGUIManager.The.m_hudToolkit.addSprite("DoofMeterEmpty.png", 0, 0, m_HudDepth + 3);
-		float bossHealthLeft = UIHelper.IsTablet() ? 0.1f : 0.12f;
-		m_bossHealthFrame.positionFromTopLeft(0.12f + topSafeOffset, bossHealthLeft);
+		if (GameManager.The.aspectRatio.x != 3f && GameManager.The.aspectRatio.y != 4f)
+		{
+			m_bossHealthFrame.positionFromTopLeft(0.12f + topSafePercent, 0.12f);
+		}
+		else
+		{
+			m_bossHealthFrame.positionFromTopLeft(0.12f + topSafePercent, 0.1f);
+		}
 		m_bossHealthBar = UIProgressBar.create(GlobalGUIManager.The.m_hudToolkit, "DoofMeterFull.png", 0, 0, false, m_HudDepth + 2);
 		m_bossHealthBar.parentUIObject = m_bossHealthFrame;
 		m_bossHealthBar.positionFromCenter(0f, -0.47f);
@@ -938,7 +961,6 @@ public class HUDGUIManager : MonoBehaviour
 	private float GetSafeAreaTopOffset()
 	{
 		float safeOffset = Screen.height - (Screen.safeArea.y + Screen.safeArea.height);
-		// Convert to percentage of screen height
 		return safeOffset / Screen.height;
 	}
 	

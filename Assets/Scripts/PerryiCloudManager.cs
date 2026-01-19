@@ -13,6 +13,9 @@ public class PerryiCloudManager : MonoBehaviour
 	}
 
 	private static string m_DataStoredWithDeviceUIDKey = "_DataStoredWithDeviceUniqueIDKey";
+	
+	// WebGL key
+	private const string WebGLDeviceIdKey = "_WebGL_Generated_DeviceId";
 
 	private static PerryiCloudManager m_the;
 
@@ -22,6 +25,22 @@ public class PerryiCloudManager : MonoBehaviour
 		{
 			return m_DataStoredWithDeviceUIDKey;
 		}
+	}
+
+	/// WebGL compatibility
+	public static string GetDeviceUniqueIdentifier()
+	{
+#if UNITY_WEBGL && !UNITY_EDITOR
+		if (!PlayerPrefs.HasKey(WebGLDeviceIdKey))
+		{
+			string newId = System.Guid.NewGuid().ToString();
+			PlayerPrefs.SetString(WebGLDeviceIdKey, newId);
+			PlayerPrefs.Save();
+		}
+		return PlayerPrefs.GetString(WebGLDeviceIdKey);
+#else
+		return SystemInfo.deviceUniqueIdentifier;
+#endif
 	}
 
 	public static PerryiCloudManager The
@@ -100,7 +119,7 @@ public class PerryiCloudManager : MonoBehaviour
 
 	public void SetItem(string key, PurchasableItem val)
 	{
-		SetItem(DataStoredWithDeviceUIDKey, SystemInfo.deviceUniqueIdentifier);
+		SetItem(DataStoredWithDeviceUIDKey, GetDeviceUniqueIdentifier());
 		SetItem(key + "_owned", val.m_owned);
 		SetItem(key + "_token", val.m_tokenCost);
 		SetItem(key + "_fedora", val.m_fedoraCost);

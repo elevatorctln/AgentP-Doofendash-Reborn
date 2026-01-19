@@ -37,7 +37,6 @@ public class UIToolkit : UISpriteManager
 {
     if (useOutsideTouchControl) return;
 
-    // 1. Handle Real Touches (Mobile)
     if (Input.touchCount > 0)
     {
         for (int i = 0; i < Input.touchCount; i++)
@@ -46,7 +45,6 @@ public class UIToolkit : UISpriteManager
             handleInput(touch.position, touch.phase, touch.fingerId);
         }
     }
-    // 2. Handle Mouse Clicks (Unity Editor / PC)
     else if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
     {
         TouchPhase phase = TouchPhase.Moved;
@@ -59,7 +57,6 @@ public class UIToolkit : UISpriteManager
 
 	private void handleInput(Vector2 screenPos, TouchPhase phase, int fingerId)
 {
-    // Convert Y coordinate for the toolkit's coordinate system
     Vector2 vector = new Vector2(screenPos.x, (float)Screen.height - screenPos.y);
     ITouchable buttonForScreenPosition = getButtonForScreenPosition(vector);
     
@@ -70,7 +67,7 @@ public class UIToolkit : UISpriteManager
         if (buttonForScreenPosition != null)
         {
             _spriteSelected[fingerId] = buttonForScreenPosition;
-            buttonForScreenPosition.onTouchBegan(new Touch(), vector); // Passing empty touch as legacy support
+            buttonForScreenPosition.onTouchBegan(new Touch(), vector); 
         }
         else
         {

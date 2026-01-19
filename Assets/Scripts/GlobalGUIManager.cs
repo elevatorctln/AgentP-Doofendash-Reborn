@@ -191,7 +191,6 @@ public sealed class GlobalGUIManager : MonoBehaviour
 	{
 		m_the = this;
 		LocalTextManager.Init();
-		// hard code to "prompt already handled", age check doesn't work and it doesn't matter now.
 		GameManager.The.playerIsUnderThirteen = false;
 		GameManager.The.hasPromptedPlayerforBirthday = true;
 	}
@@ -322,12 +321,11 @@ public sealed class GlobalGUIManager : MonoBehaviour
 
 	private void InitBackgrounds()
 	{
-		// RawImage uses RectTransform for positioning and sizing
-		// Set anchors to stretch to fill the screen
+
 		m_menuBG.rectTransform.anchorMin = Vector2.zero;
 		m_menuBG.rectTransform.anchorMax = Vector2.one;
 		m_menuBG.rectTransform.offsetMin = Vector2.zero;
-		m_menuBG.rectTransform.offsetMax = Vector2.zero; // +1 pixel like the original
+		m_menuBG.rectTransform.offsetMax = Vector2.zero;
 	}
 
 	private void InitCharacterSelectData()

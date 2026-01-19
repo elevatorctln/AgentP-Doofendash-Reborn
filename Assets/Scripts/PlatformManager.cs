@@ -690,7 +690,7 @@ public class PlatformManager : MonoBehaviour
 			}
 			platform = InstantiateRandomPrefab(platform2, shouldDecContinuations);
 		}
-		// Null check BEFORE accessing any platform properties
+		// Null check for debugging
 		if (platform == null)
 		{
 			Debug.LogError("PlatformManager.PushPlatform: Platform is null after instantiation. " +

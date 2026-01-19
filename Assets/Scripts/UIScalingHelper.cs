@@ -80,12 +80,8 @@ public static class UIScalingHelper
 
     public static float ScalePixels(float referencePixels)
     {
-        return referencePixels * UI.scaleFactorFloat;
-    }
-    public static float ScalePixelsLegacy(float referencePixels)
-    {
-        float scaled = referencePixels * UI.scaleFactorFloat;
-        return scaled * ((float)UI.scaleFactor / (UI.scaleFactorFloat > 0 ? UI.scaleFactorFloat : 1f));
+        // Use scaleFactor from UI.cs
+        return referencePixels * UI.scaleFactor;
     }
     
     public static float GetElementScale()
@@ -129,7 +125,7 @@ public static class UIScalingHelper
         Debug.Log($"[UIScalingHelper] Aspect Ratio: {AspectRatio:F3}");
         Debug.Log($"[UIScalingHelper] Safe Area: {Screen.safeArea}");
         Debug.Log($"[UIScalingHelper] IsModernPhone: {IsModernPhoneAspect}, IsTablet: {IsTablet}, HasNotch: {HasNotch}");
-        Debug.Log($"[UIScalingHelper] UI.scaleFactor: {UI.scaleFactor}, UI.scaleFactorFloat: {UI.scaleFactorFloat:F3}");
+        Debug.Log($"[UIScalingHelper] UI.scaleFactor: {UI.scaleFactor}");
         Debug.Log($"[UIScalingHelper] ElementScale: {GetElementScale():F3}, FontScale: {CalcFontScale():F3}");
     }
 }

@@ -137,8 +137,6 @@ public sealed class LoadingScreen : MonoBehaviour
 	private IEnumerator LoadNextScene()
 	{
 		Debug.Log("LoadNextScene");
-		// Use SceneLoader so we preserve the old async semantics (yielding) even on Unity 4 Personal.
-		// In hindsight this was completely unnecessary
 		SceneLoader.LoadRequest req = SceneLoader.LoadScene(m_nextSceneToLoad, this, 0.1f);
 		while (!req.IsDone)
 		{

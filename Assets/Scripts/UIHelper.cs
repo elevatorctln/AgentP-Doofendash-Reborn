@@ -528,55 +528,56 @@ public static class UIHelper
 		}
 		return num + 1;
 	}
-
-	/// Most of the code below this point is new, for reference.
 	public static float CalcFontScale()
 	{
-		float baseScale = UIScalingHelper.CalcFontScale();
+		float baseScale;
+		if (Screen.dpi >= 400f || Screen.height >= 2048)
+		{
+			baseScale = 1.6f;
+		}
+		else if (Screen.dpi >= 321f)
+		{
+			baseScale = 1.4f;
+		}
+		else if (Screen.dpi >= 300f)
+		{
+			baseScale = 1.2f;
+		}
+		else if (Screen.dpi >= 240f)
+		{
+			baseScale = (Screen.height > 1280) ? 1.0f : 0.8f;
+		}
+		else if (Screen.dpi >= 175f)
+		{
+			baseScale = 0.65f;
+		}
+		else
+		{
+			baseScale = 0.5f;
+		}
 		
-		float legacyAdjustment = 4f / Mathf.Max(UI.scaleFactor, 1);
+		float scaleMultiplier = Mathf.Clamp(2f / (float)UI.scaleFactor, 0.5f, 2f);
 		
-		float result = baseScale * legacyAdjustment * 0.5f;
-		
-		return Mathf.Clamp(result, 0.3f, 2.5f);
+		return baseScale * scaleMultiplier;
 	}
 	
-	public static float GetTouchableElementScale()
-	{
-		return UIScalingHelper.GetElementScale();
-	}
-
 	public static bool IsModernPhone()
 	{
-		return UIScalingHelper.IsModernPhoneAspect;
+		float aspectRatio = (float)Screen.width / Screen.height;
+		return aspectRatio < 0.5625f; 
 	}
 
 	public static bool IsTablet()
 	{
-		return UIScalingHelper.IsTablet;
+		float aspectRatio = (float)Screen.width / Screen.height;
+		return aspectRatio >= 0.7f; 
 	}
-
 	public static float GetTopSafeMargin()
 	{
-		return UIScalingHelper.GetTopSafeOffset();
-	}
-
-	public static float GetBottomSafeMargin()
+		float safeOffset = Screen.height - (Screen.safeArea.y + Screen.safeArea.height);
+		return safeOffset;
+	}	public static float GetBottomSafeMargin()
 	{
-		return UIScalingHelper.GetBottomSafeOffset();
-	}
-
-	public static float ScalePosition(float referencePosition)
-	{
-		return UIScalingHelper.ScalePixels(referencePosition);
-	}
-
-	public static float GetAdaptiveOffset(float baseOffset, float phoneMultiplier = 1.2f)
-	{
-		if (UIScalingHelper.IsModernPhoneAspect)
-		{
-			return baseOffset * phoneMultiplier;
-		}
-		return baseOffset;
+		return Screen.safeArea.y;
 	}
 }

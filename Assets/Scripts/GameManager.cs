@@ -994,7 +994,7 @@ public sealed class GameManager : MonoBehaviour
 			if (www.error != null)
 			{
 				Debug.LogWarning("[GameManager.StreamLoadFile] WWW error loading '" + filePath + "': " + www.error);
-				callback(string.Empty); // Call callback with empty string so LocalTextManager can continue
+				callback(string.Empty);
 			}
 			else
 			{
@@ -1008,7 +1008,7 @@ public sealed class GameManager : MonoBehaviour
 			if (fullText == null)
 			{
 				Debug.LogWarning("[GameManager.StreamLoadFile] FAILED to load '" + filePath + "' - Resources.Load returned null! Check path casing.");
-				callback(string.Empty); // Call callback with empty string so LocalTextManager can continue
+				callback(string.Empty); 
 			}
 			else
 			{

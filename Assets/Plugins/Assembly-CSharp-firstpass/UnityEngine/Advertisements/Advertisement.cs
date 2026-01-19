@@ -30,8 +30,6 @@ namespace UnityEngine.Advertisements
 		{
 			get
 			{
-				// Unity Ads in this project uses Android JNI and old iOS bindings.
-				// In editor it will throw JNI errors (no Java VM / activity).
 				return Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android;
 			}
 		}

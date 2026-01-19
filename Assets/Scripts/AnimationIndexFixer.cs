@@ -3,8 +3,6 @@ using UnityEngine;
 
 public static class AnimationIndexFixer
 {
-    // This was a dumb way I tried to fix the animation mapping issue from AssetRipper, no longer used.
-    // It kind of worked, but it was unrelible and hard to debug.
     private static readonly Dictionary<string, string[]> characterSuffixMap = new Dictionary<string, string[]>()
     {
         { "Perry", new string[] { "", "_2" } },      

@@ -2112,9 +2112,11 @@ public static class PlayerData
 		}
 	}
 
+
+	// I changed how this works a little to be compatible with WebGL, should work the same in practice.
 	public static void SavePersistentData()
 	{
-		PerryiCloudManager.The.SetItem(PerryiCloudManager.DataStoredWithDeviceUIDKey, SystemInfo.deviceUniqueIdentifier);
+		PerryiCloudManager.The.SetItem(PerryiCloudManager.DataStoredWithDeviceUIDKey, PerryiCloudManager.GetDeviceUniqueIdentifier());
 		PerryiCloudManager.The.SetItem(m_tokenKey, playerTokens);
 		PerryiCloudManager.The.SetItem(m_fedoraKey, playerFedoras);
 		PerryiCloudManager.The.SetItem(m_highestAllTimeScoreStr, m_highestAllTimeScore);
@@ -2157,7 +2159,7 @@ public static class PlayerData
 
 	public static void SaveRoundPersistentData()
 	{
-		PerryiCloudManager.The.SetItem(PerryiCloudManager.DataStoredWithDeviceUIDKey, SystemInfo.deviceUniqueIdentifier);
+		PerryiCloudManager.The.SetItem(PerryiCloudManager.DataStoredWithDeviceUIDKey, PerryiCloudManager.GetDeviceUniqueIdentifier());
 		PerryiCloudManager.The.SetItem(m_tokenKey, playerTokens);
 		PerryiCloudManager.The.SetItem(m_fedoraKey, playerFedoras);
 		PerryiCloudManager.The.SetItem(m_highestAllTimeScoreStr, m_highestAllTimeScore);

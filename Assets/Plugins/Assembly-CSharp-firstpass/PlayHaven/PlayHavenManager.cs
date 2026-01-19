@@ -89,7 +89,6 @@ namespace PlayHaven
 			{
 				if (_instance == null)
 				{
-					// Auto-create a neutered instance so callers never get null.
 					GameObject go = new GameObject("PlayHavenManager_Stub");
 					_instance = go.AddComponent<PlayHavenManager>();
 					DontDestroyOnLoad(go);
@@ -116,7 +115,6 @@ namespace PlayHaven
 			get { return string.Empty; }
 		}
 
-		// Events – defined so existing += / -= compiles, but they will never fire.
 		public event RequestCompletedHandler OnRequestCompleted;
 		public event BadgeUpdateHandler OnBadgeUpdate;
 		public event RewardTriggerHandler OnRewardGiven;
@@ -150,7 +148,6 @@ namespace PlayHaven
 			}
 		}
 
-		// All request methods return 0 (no-op).
 		public int OpenNotification(string customUDID) { return 0; }
 		public int OpenNotification() { return 0; }
 		public void CancelAllPendingRequests() { }
@@ -166,7 +163,6 @@ namespace PlayHaven
 		public bool IsPlacementSuppressed(string placement) { return true; }
 		public void ClearBadge() { }
 
-		// Listener interface – no-op implementations.
 		public void NotifyRequestCompleted(int requestId) { }
 		public void NotifyOpenSuccess(int requestId) { }
 		public void NotifyOpenError(int requestId, Error error) { }

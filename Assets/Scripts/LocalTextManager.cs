@@ -347,7 +347,6 @@ public static class LocalTextManager
 
 	private static void LoadFile(string fileName, FileDoneLoad callback)
 	{
-		// Resources paths must be lowercase to match actual folder names on case-sensitive platforms.
 		string filePath = "streamingassets/" + CurrentLanguageString.ToLower() + "/" + fileName.Replace(".txt", string.Empty);
 		Debug.Log("[LocalTextManager] Loading file: " + filePath);
 		GameManager.The.FileLoad(filePath, callback);

@@ -82,10 +82,8 @@ public sealed class SplashScreen : MonoBehaviour
 	private IEnumerator LoadScene()
 	{
 		DebugManager.Log("Load LoadScene");
-		// Create a fake LoadRequest for the progress bar display.
 		m_loadingState = new SceneLoader.LoadRequest("MainGamePlay");
 		
-		// Fake progress animation for 1 second so the loading UI can show.
 		float elapsed = 0f;
 		float duration = 1f;
 		while (elapsed < duration)
@@ -95,9 +93,6 @@ public sealed class SplashScreen : MonoBehaviour
 			yield return null;
 		}
 		
-		// Now do the actual synchronous load.
-		// NOTE: Everything after this line will NOT execute because the scene changes
-		// and this MonoBehaviour is destroyed.
 		m_loadingState.Progress = 1f;
 		Debug.Log("[SplashScreen] About to call Application.LoadLevel(MainGamePlay)");
 		Application.LoadLevel("MainGamePlay");

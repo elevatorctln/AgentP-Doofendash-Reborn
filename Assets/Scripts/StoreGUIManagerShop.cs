@@ -133,6 +133,44 @@ public class StoreGUIManagerShop : MonoBehaviour
 	{
 	}
 
+	private float m_currentScrollOffset = 0f;
+
+	private void Update()
+	{
+		// Handle mouse wheel scrolling for desktop/WebGL
+		float scrollDelta = Input.mouseScrollDelta.y;
+		if (scrollDelta != 0f)
+		{
+			float scrollAmount = scrollDelta * 80f; 
+			m_currentScrollOffset -= scrollAmount;
+			
+			switch (m_currentMenuState)
+			{
+				case SHOP_MENU_STATE.UPGRADES:
+					if (m_upgradeShop.m_scroll != null && !m_upgradeShop.m_scroll.hidden)
+					{
+						m_currentScrollOffset = Mathf.Clamp(m_currentScrollOffset, 0, m_upgradeShop.m_totalHeight - m_upgradeShop.m_scroll.height);
+						m_upgradeShop.m_scroll.scrollTo(-(int)m_currentScrollOffset, false);
+					}
+					break;
+				case SHOP_MENU_STATE.GADGETS:
+					if (m_gadgetShop.m_scroll != null && !m_gadgetShop.m_scroll.hidden)
+					{
+						m_currentScrollOffset = Mathf.Clamp(m_currentScrollOffset, 0, m_gadgetShop.m_totalHeight - m_gadgetShop.m_scroll.height);
+						m_gadgetShop.m_scroll.scrollTo(-(int)m_currentScrollOffset, false);
+					}
+					break;
+				case SHOP_MENU_STATE.GET_TOKENS:
+					if (m_getTokensShop.m_scroll != null && !m_getTokensShop.m_scroll.hidden)
+					{
+						m_currentScrollOffset = Mathf.Clamp(m_currentScrollOffset, 0, m_getTokensShop.m_totalHeight - m_getTokensShop.m_scroll.height);
+						m_getTokensShop.m_scroll.scrollTo(-(int)m_currentScrollOffset, false);
+					}
+					break;
+			}
+		}
+	}
+
 	private void InitNoConnectionText()
 	{
 		m_noStoreItemsTitleText = GlobalGUIManager.The.defaultTextAlt.addTextInstance(UIHelper.WordWrap(LocalTextManager.GetUIText("_GET_MORE_TOKEN_FED_TITLE_"), 18), 0f, 0f, 1f, m_startStoreDepth + 3);
@@ -223,11 +261,11 @@ public class StoreGUIManagerShop : MonoBehaviour
 		m_gadgetShop.m_icons = new UISprite[gadgetCount];
 		m_gadgetShop.m_upgradeGUIs = new UpgradeGUI[gadgetCount];
 		m_gadgetShop.m_isInScrollBar = new bool[gadgetCount];
-		float num = 0f;
+		m_gadgetShop.m_totalHeight = 0f;
 		for (int i = 0; i < gadgetCount; i++)
 		{
 			PurchasableGadgetItem pg = AllItemData.GetGadgetItem(i);
-			num += FillInBasicShopItemData(ref m_gadgetShop, pg, i);
+			m_gadgetShop.m_totalHeight += FillInBasicShopItemData(ref m_gadgetShop, pg, i);
 			FillInPriceShopItemData(ref m_gadgetShop, pg, i);
 			m_gadgetShop.m_shopItemButtons[i].onTouchUpInside += onTouchUpInsideBuyGadgetItemButton;
 			m_gadgetShop.m_shopItemButtons[i].onTouchDown += OnTouchDown;
@@ -357,11 +395,22 @@ public class StoreGUIManagerShop : MonoBehaviour
 
 	private void OnTouchDown(UIButton obj)
 	{
-		m_upgradeShop.m_scroll.m_disableTouch = true;
+		if (m_upgradeShop.m_scroll != null)
+			m_upgradeShop.m_scroll.m_disableTouch = true;
+		if (m_gadgetShop.m_scroll != null)
+			m_gadgetShop.m_scroll.m_disableTouch = true;
+		if (m_getTokensShop.m_scroll != null)
+			m_getTokensShop.m_scroll.m_disableTouch = true;
 	}
 
 	private void OnTouchUp(UIButton obj)
 	{
+		if (m_upgradeShop.m_scroll != null)
+			m_upgradeShop.m_scroll.m_disableTouch = false;
+		if (m_gadgetShop.m_scroll != null)
+			m_gadgetShop.m_scroll.m_disableTouch = false;
+		if (m_getTokensShop.m_scroll != null)
+			m_getTokensShop.m_scroll.m_disableTouch = false;
 	}
 
 	private void OnUpgradeStoreScrollBarChage(UISlider sender, float val)
@@ -585,22 +634,26 @@ public class StoreGUIManagerShop : MonoBehaviour
 	{
 		storeFrame = GlobalGUIManager.The.m_menuToolkit.addSprite("StorePlateBG.png", 0, 0, m_startStoreDepth + 30);
 		GlobalGUIManager.The.ResizeUIElementToProperAspectRatio(ref storeFrame);
-		float num = Screen.width - 10;
-		float num2 = (float)Screen.width - num - 5f;
-		float num3 = (float)Screen.height - StoreGUIManagerPersistentElements.The.GetBackButton().height - StoreGUIManagerPersistentElements.The.GetBottomFrame().height / 2f;
-		float num4 = StoreGUIManagerPersistentElements.The.GetBackButton().height + 10f;
-		storeFrame.pixelsFromTopLeft((int)num4, (int)num2);
-		num3 += storeFrame.position.y;
+		
+		float backButtonHeight = StoreGUIManagerPersistentElements.The.GetBackButton().height;
+		float bottomFrameHeight = StoreGUIManagerPersistentElements.The.GetBottomFrame().height;
+		float availableHeight = Screen.height - backButtonHeight - bottomFrameHeight;
+		float availableWidth = Screen.width - 20; 
+		
+		float targetWidth = availableWidth * 0.95f;
+		float targetHeight = availableHeight * 0.85f;
+		
+		float scaleX = targetWidth / storeFrame.width;
+		float scaleY = targetHeight / storeFrame.height;
+		float useScale = Mathf.Min(scaleX, scaleY);
+		storeFrame.scale = new Vector3(useScale, useScale, 1f);
+		
 		storeFrame.centerize();
 		storeFrame.positionFromCenter(-0.025f, 0f);
+		
 		storeScroll = new UIScrollableVerticalLayout(10);
 		storeScroll.verticalAlignMode = UIAbstractContainer.UIContainerVerticalAlignMode.Top;
 		storeScroll.alignMode = UIAbstractContainer.UIContainerAlignMode.Center;
-		num = Screen.width - 30 - 20;
-		num2 = (float)Screen.width - num - 10f;
-		num3 -= 5f;
-		num4 = StoreGUIManagerPersistentElements.The.GetBackButton().height + 10f - 5f;
-		num3 += storeScroll.position.y;
 		storeScroll.setSize(storeFrame.width * 0.95f, storeFrame.height * 0.97f);
 		storeScroll.parentUIObject = storeFrame;
 		storeScroll.positionCenter();
@@ -1022,6 +1075,18 @@ public class StoreGUIManagerShop : MonoBehaviour
 	public void ShowGadgetShop()
 	{
 		m_gadgetShop.m_shopFrame.hidden = false;
+		if (m_gadgetShop.m_scroll != null)
+		{
+			m_gadgetShop.m_scroll.hidden = false;
+		}
+		if (m_gadgetShop.m_scrollbarPipe != null)
+		{
+			m_gadgetShop.m_scrollbarPipe.hidden = false;
+		}
+		if (m_gadgetShop.m_scrollbar != null)
+		{
+			m_gadgetShop.m_scrollbar.hidden = false;
+		}
 		m_GadgetStoreDescription.hidden = false;
 		m_GadgetStoreDescription.text = LocalTextManager.GetStoreItemText("_GADGET_STORE_DESC_");
 		if (m_gadgetShop.m_shopItemFrames == null)
@@ -1037,6 +1102,11 @@ public class StoreGUIManagerShop : MonoBehaviour
 				UpdateGadgetItemUpgradeSprites(i);
 			}
 		}
+		m_currentScrollOffset = 0f;
+		if (m_gadgetShop.m_scroll != null)
+		{
+			m_gadgetShop.m_scroll.scrollTo(0, false);
+		}
 	}
 
 	public void ShowUpgradeShop()
@@ -1045,6 +1115,10 @@ public class StoreGUIManagerShop : MonoBehaviour
 		if (m_upgradeShop.m_scrollbarPipe != null)
 		{
 			m_upgradeShop.m_scrollbarPipe.hidden = false;
+		}
+		if (m_upgradeShop.m_scrollbar != null)
+		{
+			m_upgradeShop.m_scrollbar.hidden = false;
 		}
 		m_upgradeShop.m_shopFrame.hidden = false;
 		if (m_upgradeShop.m_shopItemFrames == null)
@@ -1060,6 +1134,8 @@ public class StoreGUIManagerShop : MonoBehaviour
 				UpdateUpgradeItemUpgradeSprites(i);
 			}
 		}
+		m_currentScrollOffset = 0f;
+		m_upgradeShop.m_scroll.scrollTo(0, false);
 	}
 
 	public void ShowGetTokenShop()
@@ -1088,6 +1164,7 @@ public class StoreGUIManagerShop : MonoBehaviour
 				ShowShopItemElement(ref m_getTokensShop, i);
 			}
 		}
+		m_currentScrollOffset = 0f;
 		m_getTokensShop.m_scroll.scrollTo(0, false);
 	}
 
