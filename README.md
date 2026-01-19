@@ -3,5 +3,7 @@ This is a preservation / restoration effort for a relatively obscure mobile game
 
 Current known issues:
 Occasionally the game will fail to start the gameplay when you press start, this is a nullreference but I can't figure out what is causing it and it's not super common.
-The alternative models for Perry are messed up
-Shaders are not perfectly accurate
+
+The alternative models for Perry are messed up.
+
+Shaders are not perfectly accurate.
