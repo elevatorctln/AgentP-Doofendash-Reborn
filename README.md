@@ -3,6 +3,13 @@ This is a preservation / restoration effort for a relatively obscure mobile game
 
 ----
 
+**Website**
+
+This game is now playable with a WebGL build! It's basic but it gets the job done for now.
+https://doofendash.run/
+
+----
+
 **Screenhots:**
 
 <img width="270" height="600" alt="Screenshot_20260118-174237 Agent P" src="https://github.com/user-attachments/assets/26d4b641-4f33-4605-b82b-9e8d1454c8d9" />
