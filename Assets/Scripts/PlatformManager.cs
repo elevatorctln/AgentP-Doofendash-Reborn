@@ -690,15 +690,18 @@ public class PlatformManager : MonoBehaviour
 			}
 			platform = InstantiateRandomPrefab(platform2, shouldDecContinuations);
 		}
+		// Null check BEFORE accessing any platform properties
+		if (platform == null)
+		{
+			Debug.LogError("PlatformManager.PushPlatform: Platform is null after instantiation. " +
+				"Check m_LinkToPlatformList and m_LinkToSequenceList configurations on the previous platform in the chain.");
+			m_IsPushingPlatform = false;
+			return;
+		}
+		
 		if (platform.m_ShouldSetNewPathHeight)
 		{
-			if (platform == null)
-			{
-				Debug.LogWarning(platform + " is null! this may cause an issue, but I don't know why it's happening");
-				return;
-			} else{
 			AddToAllPathsYPositions(platform.m_NewHeightOffset);
-			}
 		}
 		platform.HandleRotationSequences();
 		m_PlatformList.AddLast(platform);

@@ -47,6 +47,7 @@ public class MainMenuGUIManager : MonoBehaviour
 
 	private void Update()
 	{
+		
 	}
 
 	public void Init()

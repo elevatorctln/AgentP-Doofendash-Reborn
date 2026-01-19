@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+// I think it's interesting that they named this "iCloud Manager" despite it having nothing to do with iCloud or 
+// even cloud storage of any kind.
+
 public class PerryiCloudManager : MonoBehaviour
 {
 	public enum RetrieveType

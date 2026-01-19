@@ -38,8 +38,6 @@ public class PlatformSequence : MonoBehaviour
 	public static int ms_PlatformGroupCount = 3;
 
 	public string m_SequenceName;
-
-	[HideInInspector]
 	public PlatformTuple[] m_PlatformSequence;
 
 	[HideInInspector]
