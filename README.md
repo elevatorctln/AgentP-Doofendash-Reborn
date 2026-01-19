@@ -14,14 +14,12 @@ This is a preservation / restoration effort for a relatively obscure mobile game
 
 **Current known issues:**
 
-- Occasionally the game will fail to start the gameplay when you press start, this is a nullreference but I can't figure out what is causing it and it doesn't happen very often.
-
 - The alternative models for Perry are a bit messed up.
 
 - Shaders are not perfectly accurate.
 
-- Platform loading starts to lag behind a bit after while, not sure why this is.
-
 - Some menus / buttons softlock the game, everything needed for the main gameplay works fine.
 
-- UI scaling is wrong on modern devices, it's usable but definitely too bit. I am very open to suggestions on what to do about this without redoing the entire UI.
+- UI scaling is wrong on modern devices, it's usable but definitely too big. I am very open to suggestions on what to do about this without redoing the entire UI.
+
+- A couple obstacle animations don't work.
