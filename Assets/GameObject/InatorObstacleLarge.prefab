@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1304730616111235
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4759191739028253}
+  - 33: {fileID: 33867200757156031}
+  - 23: {fileID: 23646119796199596}
+  - 114: {fileID: 114899991448849281}
+  - 114: {fileID: 114800968280175181}
+  - 65: {fileID: 65915379650915160}
+  - 114: {fileID: 114409897320946313}
+  m_Layer: 0
+  m_Name: InatorObstacleLarge
+  m_TagString: wooden
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1597956252589237
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4882650002362713}
+  - 33: {fileID: 33090754552987961}
+  - 23: {fileID: 23602604255042925}
+  m_Layer: 0
+  m_Name: ShadowRect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4759191739028253
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304730616111235}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4882650002362713}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!33 &33867200757156031
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304730616111235}
+  m_Mesh: {fileID: 4300000, guid: 8a409b2fc60444540b634c8e7649ccc6, type: 2}
+--- !u!23 &23646119796199596
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304730616111235}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 8ec6a3539f6e97c4ca865e3c0a075513, type: 2}
+  - {fileID: 2100000, guid: 967eb1e7488d7454f876e238c3568330, type: 2}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!114 &114899991448849281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304730616111235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd679aeb6a65c206152ee377c89c9b1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  m_SpawnLocalPosition: {x: 0, y: 0, z: 0}
+  m_SpawnLocalScale: {x: 0, y: 0, z: 0}
+  m_LaneType: 3
+  m_ObstacleType: 1
+  m_ObstacleLane: 0
+  m_LaneDisallowList:
+  m_SpawnFrequencyType: 0
+  m_IgnoreMeCount: 0
+  m_IsScaffold: 0
+  m_OffsetsY: []
+  m_IsPartialScaffold: 0
+  m_PartialScaffoldOffset: 0
+  m_IsRamp: 0
+  m_RampAngle: 0
+  m_IsEndCap: 0
+  m_ShadowRect: {fileID: 0}
+  m_SoundClipTimerOffset: 0
+  m_SoundClipName:
+--- !u!114 &114800968280175181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304730616111235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689d39df0c9359f3ebf5977d5d86df27, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  m_RunnerResponse: 0
+  m_ShouldUseDeathPlacementDistance: 0
+  m_DeathPlacementDistance: 0
+--- !u!65 &65915379650915160
+BoxCollider:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304730616111235}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Size: {x: 28.15, y: 35.03037, z: 15.59}
+  m_Center: {x: 8.738411, y: 17.42977, z: -0.0048646927}
+--- !u!114 &114409897320946313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304730616111235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1d08059b4a638c9972aba244ef7103, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  m_Materials:
+  - {fileID: 2100000, guid: d59f59460cfe31b40b6f0251f33948e6, type: 2}
+  - {fileID: 2100000, guid: 967eb1e7488d7454f876e238c3568330, type: 2}
+--- !u!4 &4882650002362713
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597956252589237}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.258306, y: 0.2, z: 0.8223543}
+  m_LocalScale: {x: 3.2709103, y: 1, z: 2.5488377}
+  m_Children: []
+  m_Father: {fileID: 4759191739028253}
+  m_RootOrder: 0
+--- !u!33 &33090754552987961
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597956252589237}
+  m_Mesh: {fileID: 4300000, guid: c52706a4f4c67b746b9885403c2b1383, type: 2}
+--- !u!23 &23602604255042925
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597956252589237}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 0536d79a59c7bbe488d3887637ccbf63, type: 2}
+  m_SubsetIndices:
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1304730616111235}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

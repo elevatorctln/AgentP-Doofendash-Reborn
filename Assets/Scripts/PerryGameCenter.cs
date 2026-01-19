@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class PerryGameCenter : MonoBehaviour
+{
+	public enum PLAYER_AUTH_STATE
+	{
+		NO_INIT = 0,
+		WAITING = 1,
+		NOT_AUTHORIZED = 2,
+		AUTHORIZED = 3
+	}
+
+	public enum LEADERBOARD_STATE
+	{
+		NO_INIT = 0,
+		WAITING = 1,
+		LEADERBOARDS_LOADED = 2,
+		ERROR_LOADING_LEADERBORDS = 3,
+		WAITING_LOAD_SCORES = 4,
+		ERROR_LOADING_SCORES = 5,
+		WAITING_LOAD_MY_SCORES = 6,
+		ERROR_LOADING_MY_SCORES = 7,
+		SCORES_LOADED = 8
+	}
+
+	public enum ACHIEVEMENTS_STATE
+	{
+		NO_INIT = 0,
+		WAITING = 1,
+		LOADED = 2,
+		ERROR_LOADING = 3
+	}
+}

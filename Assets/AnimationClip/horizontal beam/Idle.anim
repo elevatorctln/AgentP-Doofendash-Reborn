@@ -1,0 +1,266 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Idle
+  serializedVersion: 6
+  m_Legacy: 1
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.033333335
+        value: {x: 0.7064714, y: 0.7077416, z: 1.4451463e-11, w: 1.4425438e-11}
+        inSlope: {x: -0.0000017881392, y: -0.0000017881392, z: 0.008343201, w: 0.008328227}
+        outSlope: {x: -0.0000017881392, y: -0.0000017881392, z: 0.008343201, w: 0.008328227}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 0.7062866, y: 0.70755655, z: 0.01618683, w: 0.016157778}
+        inSlope: {x: 0.0004112719, y: 0.00041216597, z: -0.018342769, w: -0.018309856}
+        outSlope: {x: 0.0004112719, y: 0.00041216597, z: -0.018342769, w: -0.018309856}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: SwingingWire_Horizontal_joint1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0.7064714, y: 0.7077416, z: -7.778169e-20, w: -8.659557e-17}
+        inSlope: {x: 0, y: 0, z: -8.826592e-10, w: -8.8107505e-10}
+        outSlope: {x: 0, y: 0, z: -8.826592e-10, w: -8.8107505e-10}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.23333335
+        value: {x: 0.70647085, y: 0.7067648, z: -0.03715552, w: -0.0013820875}
+        inSlope: {x: -0.0000026822092, y: -0.0058642034, z: -0.11687844, w: -0.0043524047}
+        outSlope: {x: -0.0000026822092, y: -0.0058642034, z: -0.11687844, w: -0.0043524047}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 0.7064714, y: 0.7077416, z: -7.778169e-20, w: -8.659557e-17}
+        inSlope: {x: -0.00000089406893, y: -0.0001269577, z: -0.028691236, w: -0.001067459}
+        outSlope: {x: -0.00000089406893, y: -0.0001269577, z: -0.028691236, w: -0.001067459}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: SwingingWire_Horizontal_joint1/SwingingWire_Horizontal_joint2
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0, y: -0, z: -0.0012899324, w: 0.99999917}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.40000004
+        value: {x: 0, y: 0, z: 0.002672351, w: 0.9999964}
+        inSlope: {x: 0, y: 0, z: -0.061635323, w: 0.00016987314}
+        outSlope: {x: 0, y: 0, z: -0.061635323, w: 0.00016987314}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 0, y: -0, z: -0.0012899324, w: 0.99999917}
+        inSlope: {x: 0, y: 0, z: 0.00065997336, w: -1.546141e-11}
+        outSlope: {x: 0, y: 0, z: 0.00065997336, w: -1.546141e-11}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: BeamObstacle_Horizontal_joint1
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.033333335
+        value: {x: -0.03764202, y: 73.96282, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: -0.03764202, y: 73.96282, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: SwingingWire_Horizontal_joint1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: -28.83598, y: -1.537206e-15, z: -0.2478768}
+        inSlope: {x: -6.661338e-13, y: -3.6977855e-29, z: -5.2041704e-15}
+        outSlope: {x: -6.661338e-13, y: -3.6977855e-29, z: -5.2041704e-15}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.033333335
+        value: {x: -28.83598, y: -1.537206e-15, z: -0.2478768}
+        inSlope: {x: -2.8548594e-13, y: -1.5847653e-29, z: -2.2303589e-15}
+        outSlope: {x: -6.661338e-13, y: -3.6977855e-29, z: -0.000000060136585}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.06666667
+        value: {x: -28.83598, y: -1.537206e-15, z: -0.2576375}
+        inSlope: {x: -2.8548594e-13, y: -1.5847653e-29, z: -0.20334768}
+        outSlope: {x: -6.6613387e-13, y: -3.6977858e-29, z: -0.20335184}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.23333333
+        value: {x: -28.83598, y: -1.537206e-15, z: -0.2495036}
+        inSlope: {x: -2.8548596e-13, y: -1.5847654e-29, z: 0.08134226}
+        outSlope: {x: -6.6613354e-13, y: -3.697784e-29, z: 0.08133972}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.33333334
+        value: {x: -28.83598, y: -1.537206e-15, z: -0.2424542}
+        inSlope: {x: -2.8548596e-13, y: -1.5847654e-29, z: 0.12200531}
+        outSlope: {x: -6.6613387e-13, y: -3.6977858e-29, z: 0.12200957}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.46666667
+        value: {x: -28.83598, y: -1.537206e-15, z: -0.238116}
+        inSlope: {x: -2.8548596e-13, y: -1.5847654e-29, z: -0.2033481}
+        outSlope: {x: -6.6613387e-13, y: -3.6977858e-29, z: -0.20334932}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: -28.83598, y: -1.537206e-15, z: -0.2478768}
+        inSlope: {x: -2.8548596e-13, y: -1.5847654e-29, z: -0.27395317}
+        outSlope: {x: -6.6613327e-13, y: -3.6977825e-29, z: -0.27394855}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: SwingingWire_Horizontal_joint1/SwingingWire_Horizontal_joint2
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: -2.993623, y: 37.36683, z: -1.758961}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: -2.993623, y: 37.36683, z: -1.758961}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: BeamObstacle_Horizontal_joint1
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.033333335
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: SwingingWire_Horizontal_joint1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: SwingingWire_Horizontal_joint1/SwingingWire_Horizontal_joint2
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: BeamObstacle_Horizontal_joint1
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 30
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: -0.028600335, y: 86.20699, z: -1.1512694}
+    m_Extent: {x: 1.0770128, y: 45.41697, z: 2.6524632}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 1
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
+  m_Events: []

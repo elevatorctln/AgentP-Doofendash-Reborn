@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1353363616899321
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4387456766134760}
+  - 114: {fileID: 114357425656550176}
+  m_Layer: 0
+  m_Name: Roof_To_Ducky_To_Balloony
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4387456766134760
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353363616899321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114357425656550176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353363616899321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcf5cf01b36084c35447b8a1ad95a8a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  m_SequenceName: Roof To Ducky To Balloony
+  m_PlatformSequence:
+  - m_Platform: {fileID: 114904887313354014, guid: 2bd8d5abb7ba00e4789cc0aa25aa901a, type: 2}
+    m_Platforms:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 0
+  - m_Platform: {fileID: 114616385207427469, guid: 3c877ed101ed0d047b6a45011928294f, type: 2}
+    m_Platforms:
+    - {fileID: 114984553590080252, guid: 520d8d5c242edfa4582019f17b9346c5, type: 2}
+    - {fileID: 114341870005624726, guid: 513128f1670fc9d40abe44483aa523e3, type: 2}
+    - {fileID: 114616385207427469, guid: 3c877ed101ed0d047b6a45011928294f, type: 2}
+    m_ShouldSelectFromGroup: 1
+    m_Count: 5
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 0
+  - m_Platform: {fileID: 114091042152410406, guid: a0d6b16191060a143995bc258fcbd698, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 0
+  m_PlatformSequenceCount: 3
+  m_SelectMeWeight: 10
+  m_SelectMeWeightInterval: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1353363616899321}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

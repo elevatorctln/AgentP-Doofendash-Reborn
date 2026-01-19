@@ -1,0 +1,14 @@
+using UnityEngine;
+
+public class AGSSyncableStringElement : AGSSyncableElement
+{
+	public AGSSyncableStringElement(AndroidJavaObject javaObject)
+		: base(javaObject)
+	{
+	}
+
+	public string GetValue()
+	{
+		return javaObject.Call<string>("getValue", new object[0]);
+	}
+}

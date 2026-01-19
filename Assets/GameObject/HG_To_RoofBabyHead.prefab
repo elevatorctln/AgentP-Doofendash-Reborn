@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1068742684197335
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4618106995090245}
+  - 114: {fileID: 114721245439082064}
+  m_Layer: 0
+  m_Name: HG_To_RoofBabyHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4618106995090245
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1068742684197335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.130043, y: -16.594536, z: -400.768}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114721245439082064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1068742684197335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcf5cf01b36084c35447b8a1ad95a8a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  m_SequenceName:
+  m_PlatformSequence:
+  - m_Platform: {fileID: 114161637689415687, guid: 6e76eb834c2006546afce456c02b4811, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 3
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 0
+  - m_Platform: {fileID: 114923023993912218, guid: ad172bb1b1f33b246ae43b6be292584f, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 0
+  - m_Platform: {fileID: 114356402114652017, guid: c040b82add92da94da200631359ef87e, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 1
+    m_ShouldSetPathHeight: 0
+  - m_Platform: {fileID: 114001583902427627, guid: a8068693e2afa9e44b77716e3886175e, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 0
+  - m_Platform: {fileID: 114398852225310544, guid: 7d386f2e17e674d4fabcd8bfa543c1bc, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 3
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 0
+  - m_Platform: {fileID: 114740483580407320, guid: 845cbe21e38a15c41996f1b0997f55bb, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 2
+    m_ShouldSetPathHeight: 0
+  m_PlatformSequenceCount: 6
+  m_SelectMeWeight: 10
+  m_SelectMeWeightInterval: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1068742684197335}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

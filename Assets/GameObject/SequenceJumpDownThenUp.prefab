@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1840695616461716
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4338792514789925}
+  - 114: {fileID: 114295567436432496}
+  m_Layer: 0
+  m_Name: SequenceJumpDownThenUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4338792514789925
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840695616461716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -125}
+  m_LocalScale: {x: 125, y: 125, z: 125}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114295567436432496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840695616461716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcf5cf01b36084c35447b8a1ad95a8a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  m_SequenceName:
+  m_PlatformSequence:
+  - m_Platform: {fileID: 114887871346575955, guid: b317a4d7178d46a468ead5f2501ac3f8, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 1
+  - m_Platform: {fileID: 114259128154035856, guid: e29d82c993931fb40b6450e60f4ff87b, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 0
+  - m_Platform: {fileID: 114000393202698304, guid: aef40eeaab3eeca439a0fc45cd3af17c, type: 2}
+    m_Platforms: []
+    m_ShouldSelectFromGroup: 0
+    m_Count: 1
+    m_GameEventToExecute: 0
+    m_ShouldSetPathHeight: 1
+  m_PlatformSequenceCount: 3
+  m_SelectMeWeight: 15
+  m_SelectMeWeightInterval: 140
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1840695616461716}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
