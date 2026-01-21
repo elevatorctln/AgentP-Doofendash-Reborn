@@ -2,70 +2,46 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 3
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: perryClip
-  m_Shader: {fileID: 4800000, guid: da6f6b80a0bdf974580f51291806f347, type: 3}
-  m_ShaderKeywords: []
+  m_Shader: {fileID: 4800000, guid: f5c37b6b4a2db4ebd82857d3127c9a29, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TexEnvs:
-      data:
-        first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 2800000, guid: b6a8ce4f05429db4b9c8b050f7bfc65f, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Ramp
-        second:
-          m_Texture: {fileID: 2800000, guid: 5186dcff2ff108d4a9f350f38ee84a66, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b6a8ce4f05429db4b9c8b050f7bfc65f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 2800000, guid: 5186dcff2ff108d4a9f350f38ee84a66, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-      data:
-        first:
-          name: _ClipMaxX
-        second: 100
-      data:
-        first:
-          name: _ClipMaxY
-        second: 100
-      data:
-        first:
-          name: _ClipMinX
-        second: 16
-      data:
-        first:
-          name: _ClipMinY
-        second: 1.6
-      data:
-        first:
-          name: _Cutoff
-        second: 0.5
-      data:
-        first:
-          name: _RimPower
-        second: 3
+    - _ClipMaxX: 100
+    - _ClipMaxY: 100
+    - _ClipMinX: 16
+    - _ClipMinY: 1.6
+    - _Cutoff: 0.5
+    - _RimPower: 4
     m_Colors:
-      data:
-        first:
-          name: _Color
-        second: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-      data:
-        first:
-          name: _LColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _RimColor
-        second: {r: 1, g: 1, b: 1, a: 0.5019608}
-      data:
-        first:
-          name: _SColor
-        second: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    - _LColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 0.5019608}
+    - _SColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

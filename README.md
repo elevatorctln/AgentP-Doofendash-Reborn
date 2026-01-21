@@ -29,10 +29,8 @@ https://doofendash.run/
 
 - The alternative models for Perry are a bit messed up.
 
-- Shaders are not perfectly accurate.
+- Shaders are not perfectly accurate, they're close but not perfect.
 
 - Some menus / buttons softlock the game, everything needed for the main gameplay works fine.
 
-- UI scaling is wrong on modern devices, it's usable but definitely too big. I am very open to suggestions on what to do about this without redoing the entire UI.
-
-- A couple obstacle animations don't work.
+- UI scaling is wrong on modern devices, it's usable but definitely inconsistent and a bit funky. I am very open to suggestions on what to do about this without redoing the entire UI.
