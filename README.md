@@ -22,6 +22,8 @@ https://doofendash.run/
 <img width="240" height="720" alt="Screenshot_20260120-200634 Agent P" src="https://github.com/user-attachments/assets/e2459165-9d88-418e-8788-068aa14df1e3" />
 <img width="240" height="720" alt="Screenshot_20260120-200741 Agent P" src="https://github.com/user-attachments/assets/634221c7-e6f7-4b17-b14c-5740a7b02529" />
 <img width="240" height="720" alt="Screenshot_20260120-201311 Agent P" src="https://github.com/user-attachments/assets/6cb4aa00-7a61-4ce0-8024-09b80776d2be" />
+<img width="1080" height="2400" alt="Screenshot_20260120-200612 Agent P" src="https://github.com/user-attachments/assets/371e7b0d-25cc-4059-9537-88ebdbd6d0fc" />
+<img width="1080" height="2400" alt="Screenshot_20260120-200642 Agent P" src="https://github.com/user-attachments/assets/da57917d-13a7-4754-85d7-a6eee9279d52" />
 
 
 ----
