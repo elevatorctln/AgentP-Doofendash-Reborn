@@ -3,6 +3,12 @@ This is a preservation / restoration effort for a relatively obscure mobile game
 
 ----
 
+**Why are you spending the time and effort to restore a 13 year old mobile game very few people care about?**
+
+Because I want to and I'm having fun
+
+----
+
 **Website**
 
 This game is now playable with a WebGL build! It's basic but it gets the job done for now.
