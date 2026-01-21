@@ -114,12 +114,7 @@ public class PerryGameServices : MonoBehaviour
 
 	public static bool IsSignedIn()
 	{
-		#if !UNITY_ANDROID
-		return false;
-		#endif
-		bool flag = PlayGameServices.isSignedIn();
-		Debug.Log("is signed in? " + flag);
-		return flag;
+		return PlayGameServices.isSignedIn();
 	}
 
 	public static void GetPlayerInfo()

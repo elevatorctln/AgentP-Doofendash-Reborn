@@ -167,6 +167,13 @@ public class DoofenCruiser : PathStateMachine
 
 	private bool m_AreChargeUpEffectsEnabled;
 
+	// debugging stuff
+	private bool m_IsInAttackCoolingOff;
+
+	private bool m_IsInTargetPutAway;
+
+	private bool m_HasLoggedContinueMenuState;
+
 	public Animation DoofAnimation
 	{
 		get
@@ -441,8 +448,18 @@ public class DoofenCruiser : PathStateMachine
 
 	private void GameStartListener()
 	{
+		Debug.LogError("[BOSS_DEBUG] GameStartListener called. m_BossPhase=" + m_BossPhase + ", IsActive=" + IsActive() + ", gameObject.activeSelf=" + gameObject.activeSelf);
+		
+		// more debugging stuff
+		if (m_BossPhase != BossPhase.None)
+		{
+			Debug.LogError("[BOSS_DEBUG] GameStartListener: Boss still active at game start! Forcing reset. m_BossPhase=" + m_BossPhase);
+			ForceDirectBossReset();
+		}
+		
 		if (m_BossPhase == BossPhase.None)
 		{
+			Debug.LogError("[BOSS_DEBUG] GameStartListener: m_BossPhase is None, proceeding with setup");
 			base.transform.rotation = m_InitialRotation;
 			base.gameObject.SetActive(true);
 			m_BossPhase = BossPhase.None;
@@ -462,8 +479,10 @@ public class DoofenCruiser : PathStateMachine
 
 	private void BossStartListener(MiniGameManager.BossType bossType)
 	{
+		Debug.LogError("[BOSS_DEBUG] BossStartListener called. bossType=" + bossType + ", m_BossPhase=" + m_BossPhase + ", gameObject.activeSelf=" + gameObject.activeSelf);
 		if (bossType == MiniGameManager.BossType.DoofenCruiser && m_BossPhase == BossPhase.None)
 		{
+			Debug.LogError("[BOSS_DEBUG] BossStartListener: Starting boss fight setup");
 			CancelInvoke();
 			base.gameObject.SetActive(true);
 			base.GetComponent<Animation>().Play("IdleNormal");
@@ -487,8 +506,10 @@ public class DoofenCruiser : PathStateMachine
 
 	private void BossEndListener(MiniGameManager.BossType bossType)
 	{
+		Debug.LogError("[BOSS_DEBUG] BossEndListener called. bossType=" + bossType + ", m_BossPhase=" + m_BossPhase + ", gameObject.activeSelf=" + gameObject.activeSelf);
 		if (bossType == MiniGameManager.BossType.DoofenCruiser)
 		{
+			Debug.LogError("[BOSS_DEBUG] BossEndListener: Resetting DoofenCruiser state");
 			ResetHealth();
 			DeathFlashPoofDisable();
 			base.gameObject.SetActive(false);
@@ -507,9 +528,23 @@ public class DoofenCruiser : PathStateMachine
 
 	private void GameRestartMenuListener()
 	{
+		Debug.LogError("[BOSS_DEBUG] GameRestartMenuListener called. m_BossPhase=" + m_BossPhase + ", m_BossDeck=" + m_BossDeck + ", IsActive=" + IsActive() + ", gameObject.activeSelf=" + gameObject.activeSelf);
+		Debug.LogError("[BOSS_DEBUG] GameRestartMenuListener: m_AttackState=" + (m_AttackState != null) + ", m_TargetState=" + (m_TargetState != null) + ", m_ExitState=" + (m_ExitState != null) + ", m_IsInAttackCoolingOff=" + m_IsInAttackCoolingOff);
+		
+		// yet more debugging stuff
+		CancelInvoke();
+		m_IsInAttackCoolingOff = false;
+		m_IsInTargetPutAway = false; 
+		ResetAllActionStates();
+		
 		if (m_BossPhase != BossPhase.None)
 		{
+			Debug.LogError("[BOSS_DEBUG] GameRestartMenuListener: m_BossPhase not None, triggering BossEnd");
 			GameEventManager.TriggerBossEnd(MiniGameManager.BossType.DoofenCruiser);
+		}
+		else
+		{
+			Debug.LogError("[BOSS_DEBUG] GameRestartMenuListener: m_BossPhase is already None, skipping BossEnd trigger");
 		}
 	}
 
@@ -584,20 +619,20 @@ public class DoofenCruiser : PathStateMachine
 
 	private void ResetAllActionStates()
 	{
+		Debug.LogError("[BOSS_DEBUG] ResetAllActionStates called");
 		this.m_AttackState = null;
 		this.m_TargetState = null;
 		this.m_RollerState = null;
 		this.m_RamState = null;
 		this.m_ExitState = null;
+		// you guessed it
+		m_IsInAttackCoolingOff = false;
+		m_IsInTargetPutAway = false;
 	}
 
 	private bool IsInAttackMode()
 	{
-		if (this.m_AttackState != null && this.m_AttackState != new ActionState(AttackCoolingOffParticles))
-		{
-			return true;
-		}
-		return false;
+		return this.m_AttackState != null && !m_IsInAttackCoolingOff;
 	}
 
 	protected void AttackIdleToAttackModeUpdate()
@@ -693,6 +728,7 @@ public class DoofenCruiser : PathStateMachine
 		{
 			AttackStreamsColliderDisable();
 			m_AreCollidersEnabled = false;
+			m_IsInAttackCoolingOff = true;
 			this.m_AttackState = AttackCoolingOffParticles;
 		}
 	}
@@ -703,6 +739,7 @@ public class DoofenCruiser : PathStateMachine
 		{
 			AttackStreamsDisable();
 			this.m_AttackState = null;
+			m_IsInAttackCoolingOff = false;
 		}
 	}
 
@@ -771,6 +808,12 @@ public class DoofenCruiser : PathStateMachine
 
 	private void Update()
 	{
+		// can you believe it? more debugging stuff
+		if (GameManager.The != null)
+		{
+			CheckForForcedReset();
+		}
+		
 		if (!(GameManager.The == null) && !GameManager.The.IsGamePaused() && GameManager.The.IsInGamePlay())
 		{
 			PathUpdate();
@@ -802,6 +845,73 @@ public class DoofenCruiser : PathStateMachine
 		}
 	}
 
+	private void CheckForForcedReset()
+	{
+		// If boss is not active, nothing to check so don't do all the debugging stuff
+		if (m_BossPhase == BossPhase.None)
+		{
+			m_HasLoggedContinueMenuState = false;
+			return;
+		}
+		
+		GameManager.GameplayState state = GameManager.currentGameplayState;
+		
+		bool inValidGameplayState = 
+			state == GameManager.GameplayState.GamePlay_Action ||
+			state == GameManager.GameplayState.GamePlay_Pause ||
+			state == GameManager.GameplayState.GamePlay_Intro ||
+			state == GameManager.GameplayState.GameContinue;
+		
+		bool inContinueMenu = state == GameManager.GameplayState.GameOver_ContinueMenu;
+		
+		if (!inValidGameplayState && !inContinueMenu)
+		{
+			CancelInvoke();
+			m_IsInAttackCoolingOff = false;
+			m_IsInTargetPutAway = false;
+			ResetAllActionStates();
+			m_HasLoggedContinueMenuState = false;
+			
+			ForceDirectBossReset();
+		}
+		
+		if (inContinueMenu && !m_HasLoggedContinueMenuState)
+		{
+			Debug.LogError("[BOSS_DEBUG] CheckForForcedReset: Game is in continue menu, boss phase is " + m_BossPhase);
+			m_HasLoggedContinueMenuState = true;
+		}
+		else if (!inContinueMenu)
+		{
+			m_HasLoggedContinueMenuState = false;
+		}
+	}
+	private void ForceDirectBossReset()
+	{
+		Debug.LogError("[BOSS_DEBUG] ForceDirectBossReset: Performing direct boss reset");
+		
+		ResetHealth();
+		DeathFlashPoofDisable();
+		base.gameObject.SetActive(false);
+		DisableParticles();
+		CancelInvoke();
+		m_BossPhase = BossPhase.None;
+		m_BossDeck = BossDeck.None;
+		ResetAllActionStates();
+		if (base.GetComponent<Animation>() != null)
+		{
+			base.GetComponent<Animation>().Stop();
+		}
+		if (m_DoofAnimation != null)
+		{
+			m_DoofAnimation.Stop();
+		}
+		m_SequencePassedCount = 0;
+		AttackStreamsColliderDisableAll();
+		m_AreCollidersEnabled = false;
+		
+		Debug.LogError("[BOSS_DEBUG] ForceDirectBossReset: Boss reset complete");
+	}
+
 	public void TriggerAction(Attacks attack)
 	{
 		if (IsOnPath())
@@ -816,7 +926,7 @@ public class DoofenCruiser : PathStateMachine
 			}
 			m_SequencePassedCount++;
 		}
-		else if (!IsInExitState() && m_IsAbleToAttack && (this.m_AttackState == null || !(this.m_AttackState != new ActionState(AttackCoolingOffParticles))))
+		else if (!IsInExitState() && m_IsAbleToAttack && (this.m_AttackState == null || m_IsInAttackCoolingOff))
 		{
 			m_AttackChosen = attack;
 			string animName;
@@ -855,7 +965,9 @@ public class DoofenCruiser : PathStateMachine
 
 	public bool IsInTargetMode()
 	{
-		return this.m_TargetState != null && this.m_TargetState != new ActionState(TargetPutAway);
+		bool result = this.m_TargetState != null && !m_IsInTargetPutAway;
+		Debug.LogError("[BOSS_DEBUG] IsInTargetMode: m_TargetState=" + (m_TargetState != null) + ", m_IsInTargetPutAway=" + m_IsInTargetPutAway + ", result=" + result);
+		return result;
 	}
 
 	public void TriggerTargetStart()
@@ -914,9 +1026,11 @@ public class DoofenCruiser : PathStateMachine
 	{
 		if (!IsInAttackMode())
 		{
+			Debug.LogError("[BOSS_DEBUG] TargetEnd: Transitioning to TargetPutAway");
 			base.GetComponent<Animation>().Rewind("TargetEnd");
 			base.GetComponent<Animation>().Play("TargetEnd");
 			GameEventManager.TriggerBossTargetInvisible(m_WeaponChosen);
+			m_IsInTargetPutAway = true;
 			this.m_TargetState = TargetPutAway;
 		}
 	}

@@ -273,7 +273,6 @@ public sealed class GameManager : MonoBehaviour
 			{
 				Application.targetFrameRate = 60;
 			}
-			PlayHavenController.ShowPlayHavenPlacements = true;
 			GameEventManager.GameLoading += GameLoading;
 			GameEventManager.GameMainMenu += StartMainMenu;
 			GameEventManager.GameIntro += GameIntro;
@@ -312,7 +311,6 @@ public sealed class GameManager : MonoBehaviour
 			Screen.orientation = ScreenOrientation.AutoRotation;
 			InitPersistentData();
 			PlayerData.SetNewMissions();
-			StartPlayHavenPlacements();
 			RenderSettings.fogColor = new Color(0.3764f, 0.7843f, 0.98039f);
 			PlayerData.AllTimeAppLaunches++;
 			if (PlayerData.AllTimeAppLaunches <= 1)
@@ -360,9 +358,6 @@ public sealed class GameManager : MonoBehaviour
 		return false;
 	}
 
-	public void StartPlayHavenPlacements()
-	{
-	}
 
 	public void InitPersistentData()
 	{

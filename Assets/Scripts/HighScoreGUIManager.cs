@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using PlayHaven;
 using UnityEngine;
 
 public class HighScoreGUIManager : MonoBehaviour
@@ -83,83 +82,6 @@ public class HighScoreGUIManager : MonoBehaviour
 			m_highScoreElements = new List<HighScoreElement>();
 			m_faceTextures = new Dictionary<string, FaceTexture>();
 			InitHighScores();
-			m_moreGamesBtn = UIButton.create(GlobalGUIManager.The.m_menuToolkit, "MajescoButton.png", "MajescoButtonOver.png", 0, 0, m_highScoreDepth);
-			m_moreGamesBtn.highlightedTouchOffsets = new UIEdgeOffsets(30);
-			GlobalGUIManager.The.ResizeUIElementToProperAspectRatio(ref m_moreGamesBtn);
-			m_moreGamesBtn.positionFromTopLeft(0.005f, 0.15f);
-			m_moreGamesBtn.onTouchUpInside += onTouchUpInsideMoreGamesButton;
-			m_moreGamesLabel = GlobalGUIManager.The.defaultText.addTextInstance(LocalTextManager.GetUIText("_MORE_GAMES_"), 0f, 0f, 0.6f, m_highScoreDepth);
-			m_moreGamesLabel.alignMode = UITextAlignMode.Center;
-			m_moreGamesLabel.verticalAlignMode = UITextVerticalAlignMode.Top;
-			m_moreGamesLabel.setColorForAllLetters(Color.black);
-			m_moreGamesLabel.parentUIObject = m_moreGamesBtn;
-			m_moreGamesLabel.positionFromCenter(0.65f, -0.05f);
-			m_moreGamesLabel.text = LocalTextManager.GetUIText("_MORE_GAMES_");
-			m_moreGamesLabel.textScale = 0.3f;
-			if (Application.platform == RuntimePlatform.IPhonePlayer)
-			{
-				m_moreGamesLabel.textScale = 0f;
-			}
-			m_freeTokenStoreButton = UIButton.create(GlobalGUIManager.The.m_menuToolkit, "PlayButtonOver.png", "PlayButtonOver.png", 0, 0, m_highScoreDepth + 1);
-			m_freeTokenStoreButton.highlightedTouchOffsets = new UIEdgeOffsets(30);
-			m_freeTokenStoreButton.positionFromTopLeft(0.25f, 0.01f);
-			m_freeTokenStoreButton.setSize(137f, 49f);
-			m_freeTokenStoreButton.onTouchUpInside += onTouchUpInsideTrialPayButton;
-			if (Screen.dpi >= 400f)
-			{
-				m_freeTokenStoreButton.scale = new Vector3(2f, 2f, 1f);
-			}
-			if (Screen.height >= 2048)
-			{
-				m_freeTokenStoreButton.scale = new Vector3(2.5f, 2.5f, 1f);
-				m_freeTokenStoreButton.positionFromTopLeft(0.24f, 0.02f);
-			}
-			m_freeTokenStoreText = GlobalGUIManager.The.defaultTextAlt.addTextInstance(LocalTextManager.GetUIText("_FREE_STUFF_"), 0f, 0f, 1f, m_highScoreDepth);
-			m_freeTokenStoreText.alignMode = UITextAlignMode.Center;
-			m_freeTokenStoreText.verticalAlignMode = UITextVerticalAlignMode.Middle;
-			m_freeTokenStoreText.setColorForAllLetters(Color.white);
-			m_freeTokenStoreText.parentUIObject = m_freeTokenStoreButton;
-			m_freeTokenStoreText.positionFromCenter(0f, 0f);
-			if (LocalTextManager.CurrentLanguageType != LocalTextManager.PerryLanguages.English)
-			{
-				m_freeTokenStoreText.textScale = ((!(Screen.dpi >= 400f)) ? 0.4f : 1.4f);
-			}
-			else
-			{
-				m_freeTokenStoreText.textScale = ((!(Screen.dpi >= 400f)) ? 0.5f : 1.4f);
-			}
-			m_bee7Button = UIButton.create(GlobalGUIManager.The.m_menuToolkit, "PlayButton.png", "PlayButton.png", 0, 0, m_highScoreDepth + 1);
-			m_bee7Button.highlightedTouchOffsets = new UIEdgeOffsets(30);
-			m_bee7Button.positionFromTopLeft(0.45f, 0.01f);
-			m_bee7Button.setSize(137f, 49f);
-			m_bee7Button.onTouchUpInside += onTouchUpInsideBee7Button;
-			if (Screen.dpi >= 400f)
-			{
-				m_bee7Button.scale = new Vector3(2f, 2f, 1f);
-			}
-			if (Screen.height >= 2048)
-			{
-				m_bee7Button.scale = new Vector3(3f, 3f, 1f);
-				m_bee7Button.positionFromTopLeft(0.315f, 0.02f);
-			}
-			m_bee7Image = GlobalGUIManager.The.m_menuToolkit.addSprite("StarterPackIcon.png", 0, 0, m_highScoreDepth);
-			m_bee7Image.parentUIObject = m_bee7Button;
-			m_bee7Image.positionFromRight(-0f, 0.02f);
-			m_bee7Image.scale = new Vector3(0.65f, 0.65f, 1f);
-			m_bee7Text = GlobalGUIManager.The.defaultTextAlt.addTextInstance(LocalTextManager.GetUIText("_FREE_GAMES_"), 0f, 0f, 1f, m_highScoreDepth);
-			m_bee7Text.alignMode = UITextAlignMode.Left;
-			m_bee7Text.verticalAlignMode = UITextVerticalAlignMode.Middle;
-			m_bee7Text.setColorForAllLetters(Color.white);
-			m_bee7Text.parentUIObject = m_bee7Button;
-			m_bee7Text.positionFromLeft(0f, 0.05f);
-			if (LocalTextManager.CurrentLanguageType != LocalTextManager.PerryLanguages.English)
-			{
-				m_bee7Text.textScale = ((!(Screen.dpi >= 400f)) ? 0.5f : 1.5f);
-			}
-			else
-			{
-				m_bee7Text.textScale = ((!(Screen.dpi >= 400f)) ? 0.5f : 1.5f);
-			}
 			HideAll();
 		}
 	}
@@ -412,21 +334,7 @@ public class HighScoreGUIManager : MonoBehaviour
 
 	public void onTouchUpInsideShareBtn(UIButton btn)
 	{
-		if (!GameManager.The.playerIsUnderThirteen)
-		{
-			if (Application.internetReachability == NetworkReachability.NotReachable)
-			{
-				DisableSocialButtons();
-				PopUpGUIManager.The.ShowNoInternetNotificationPopup(OnNoInternetPopUpDismissed, delegate
-				{
-				});
-			}
-			else
-			{
-				string[] items = new string[1] { LocalTextManager.GetUIText("_SHARING_MESSAGE_").Replace("SCORE", PlayerData.GetTotalRoundScore().ToString()) };
-				Social.Instance.ShareItems(items);
-			}
-		}
+		
 	}
 
 	private void GameRestartMenuListener()
@@ -452,13 +360,6 @@ public class HighScoreGUIManager : MonoBehaviour
 	public void HideAll()
 	{
 		HideHighScores();
-		m_moreGamesBtn.hidden = true;
-		m_moreGamesLabel.hidden = true;
-		m_freeTokenStoreButton.hidden = true;
-		m_freeTokenStoreText.hidden = true;
-		m_bee7Button.hidden = true;
-		m_bee7Image.hidden = true;
-		m_bee7Text.hidden = true;
 	}
 
 	public void HideHighScores()
@@ -516,13 +417,6 @@ public class HighScoreGUIManager : MonoBehaviour
 
 	public void ShowHighScoresInGameMenu()
 	{
-		m_moreGamesBtn.hidden = false;
-		m_moreGamesLabel.hidden = false;
-		m_freeTokenStoreButton.hidden = false;
-		m_freeTokenStoreText.hidden = false;
-		m_bee7Button.hidden = false;
-		m_bee7Image.hidden = false;
-		m_bee7Text.hidden = false;
 		if (PlayerData.PerryLeaderboards != null && PlayerData.PerryLeaderboards.Count > 0)
 		{
 			SortHighScores(true);
@@ -645,16 +539,7 @@ public class HighScoreGUIManager : MonoBehaviour
 		if (Application.internetReachability != NetworkReachability.NotReachable)
 		{
 			GameManager.The.PauseMusic();
-			#if UNITY_ANDROID
-			PlayHavenManager.instance.ContentRequest("more_games");
-			#endif
-			FlurryFacade.Instance.LogEvent("MoreGamesClicked");
 		}
-	}
-
-	public void PlayHavenManagerinstanceOnDismissContentListener(int requestId, DismissType dismissType)
-	{
-		GameManager.The.ResumeMusic();
 	}
 
 	public void onTouchUpInsideTrialPayButton(UIButton sender)

@@ -214,7 +214,6 @@ public sealed class GlobalGUIManager : MonoBehaviour
 
 	private void OnExitPromptConfirmed(object o)
 	{
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.AppExit);
 		Invoke("ExitGame", 0.5f);
 	}
 
@@ -1644,7 +1643,7 @@ public sealed class GlobalGUIManager : MonoBehaviour
 		}
 		else if (IsInInGameMenu())
 		{
-			ContinueScreenGUIManager.The.CheckPlayHavenPlacements();
+			ShowInGameMenuMissions();
 		}
 		else if (IsInPauseMenu())
 		{

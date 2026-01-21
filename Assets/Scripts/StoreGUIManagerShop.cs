@@ -1675,9 +1675,6 @@ public class StoreGUIManagerShop : MonoBehaviour
 			{
 				DisableAllShopButtons(ref m_freeTokensShop, true);
 				GameManager.The.PlayClip(AudioClipFiles.UICLICK);
-				#if UNITY_ANDROID
-				SuperSonicAndroid.showBrandConnect();
-				#endif
 			}
 		}
 	}

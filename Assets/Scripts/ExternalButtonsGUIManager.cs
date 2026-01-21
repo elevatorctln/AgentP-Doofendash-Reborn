@@ -1,4 +1,3 @@
-using PlayHaven;
 using UnityEngine;
 
 public class ExternalButtonsGUIManager : MonoBehaviour
@@ -53,7 +52,6 @@ public class ExternalButtonsGUIManager : MonoBehaviour
 
 	private void Awake()
 	{
-		PlayHavenManager.instance.OnDismissContent += PlayHavenManagerinstanceOnDismissContentListener;
 		MainMenuEventManager.StopRecording += HandleStopRecording;
 	}
 
@@ -202,7 +200,6 @@ public class ExternalButtonsGUIManager : MonoBehaviour
 				}
 			}
 			FlurryFacade.Instance.LogEvent("LeaderboardClicked");
-			PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.VisitLeaderboardFromMain);
 		}
 	}
 
@@ -221,10 +218,6 @@ public class ExternalButtonsGUIManager : MonoBehaviour
 			DisableButtons();
 			m_activeThirdPartyUtility = ThirdPartyUtilityActive.MoreGames;
 			GameManager.The.PauseMusic();
-			#if UNITY_ANDROID
-			PlayHavenManager.instance.ContentRequest("more_games");
-			#endif
-			FlurryFacade.Instance.LogEvent("MoreGamesClicked");
 		}
 	}
 
@@ -273,10 +266,4 @@ public class ExternalButtonsGUIManager : MonoBehaviour
 
 	}
 
-	public void PlayHavenManagerinstanceOnDismissContentListener(int requestId, DismissType dismissType)
-	{
-		m_activeThirdPartyUtility = ThirdPartyUtilityActive.none;
-		GameManager.The.ResumeMusic();
-		EnableButtons();
-	}
 }

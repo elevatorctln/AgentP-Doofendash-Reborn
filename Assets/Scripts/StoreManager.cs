@@ -197,7 +197,6 @@ public class StoreManager : MonoBehaviour
 	public void Init()
 	{
 		string androidPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnOm2eRzAz8SauLfYYVHujHdPN55hIgHgY2a3dhvxHKOAiL4tGvya/JPDNuWqCFFYMOxvxF9NbUkoGJWkZzr1dphK3cDEFN8tdZPwTjTHhdeSYyzq/rmLs6H5pQEthPt7F9q/8zV5u37IvhO/ShuzYRAGnH8Sr2KbrAZtmpaJ4K1D/ZSOOkbFmsj/4a3pRa86JuTrRj/1Lhm1OOTMbHaf7DFDnjpRxr9HmezVtziQWh+RUuJypoRA16JtGfDI12HJSFz8BgwUCxYndDAlRonttA6wqWLP7NPiJjuUSKJyRbJLDAHjULPRBGuoeels8qynms8MUwnNSdkdfZim/mySvwIDAQAB";
-		IAP.init(androidPublicKey);
 	}
 
 	private void SetupOnce()
@@ -209,7 +208,6 @@ public class StoreManager : MonoBehaviour
 		DebugManager.Log("Attempting to download all products");
 		m_currentGetItemCallback = callback;
 		m_isWaitingForProducts = true;
-		IAP.requestProductData(m_iosProductIdentifiers, m_androidProductIdentifiers, m_amazonProductIdentifiers, RecievedAllProducts);
 		DebugManager.Log("Returned from IAP.requestProductData, in StoreManager.GetProducts()");
 		Invoke("GetProductTimeout", 30f);
 	}
@@ -312,50 +310,7 @@ public class StoreManager : MonoBehaviour
 
 	private void BuyProduct(IAPProduct product, bool isConsumable, Action<bool> buyItemCallback, bool dummy)
 	{
-		BuyItemWaiting newBuyItem = null;
-		if (product.productId == null)
-		{
-			return;
-		}
-		DebugManager.Log("Buying Product: " + product.productId + ", isConsumable: " + isConsumable);
-		if (BuyItemWaiting.IsItemAlreadyOnList(product))
-		{
-			buyItemCallback(false);
-		}
-		newBuyItem = new BuyItemWaiting(buyItemCallback, 30f, product);
-		Invoke("BuyItemTimeoutForAction", newBuyItem.buyItemTimeout);
-		if (isConsumable)
-		{
-			IAP.purchaseConsumableProduct(product.productId, delegate(bool didSucceed)
-			{
-				CancelInvoke("BuyItemTimeoutForAction");
-				DebugManager.Log("purchasing product " + product.productId + " result: " + didSucceed);
-				if (didSucceed)
-				{
-					HandleBoughtProduct(product);
-					newBuyItem.BuySuccess(product);
-				}
-				else
-				{
-					newBuyItem.BuyFail();
-				}
-			});
-			return;
-		}
-		DebugManager.Log("purchasing non consumable product...");
-		IAP.purchaseNonconsumableProduct(product.productId, delegate(bool didSucceed)
-		{
-			DebugManager.Log("purchasing product " + product.productId + " result: " + didSucceed);
-			if (didSucceed)
-			{
-				HandleBoughtProduct(product);
-				newBuyItem.BuySuccess(product);
-			}
-			else
-			{
-				newBuyItem.BuyFail();
-			}
-		});
+		
 	}
 
 	private void BuyProduct(IAPProduct product, bool isConsumable, BuyItemCallback callback = null)
@@ -368,57 +323,8 @@ public class StoreManager : MonoBehaviour
 		m_isWaitingForPurchase = true;
 		m_currentBuyItemCallback = callback;
 		Invoke("BuyItemTimeout", 30f);
-		if (isConsumable)
-		{
-			IAP.purchaseConsumableProduct(product.productId, delegate(bool didSucceed)
-			{
-				DebugManager.Log("purchasing product " + product.productId + " result: " + didSucceed);
-				m_isWaitingForPurchase = false;
-				CancelInvoke("BuyItemTimeout");
-				if (didSucceed)
-				{
-					HandleBoughtProduct(product);
-					if (callback != null)
-					{
-						callback(true);
-					}
-				}
-				else
-				{
-					DebugManager.Log("Error Buying Product!");
-					if (callback != null)
-					{
-						callback(false);
-					}
-				}
-				m_currentBuyItemCallback = null;
-			});
-			return;
-		}
-		IAP.purchaseNonconsumableProduct(product.productId, delegate(bool didSucceed)
-		{
-			DebugManager.Log("purchasing product " + product.productId + " result: " + didSucceed);
-			m_isWaitingForPurchase = false;
-			CancelInvoke("BuyItemTimeout");
-			if (didSucceed)
-			{
-				HandleBoughtProduct(product);
-				if (callback != null)
-				{
-					callback(true);
-				}
-			}
-			else
-			{
-				DebugManager.Log("Error Buying Product!");
-				if (callback != null)
-				{
-					callback(false);
-				}
-			}
-			m_currentBuyItemCallback = null;
-		});
 	}
+		
 
 	private void BuyItemTimeoutForAction()
 	{

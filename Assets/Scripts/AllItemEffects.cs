@@ -198,7 +198,6 @@ public static class AllItemEffects
 		{
 			PlayerData.WaterWeaponUpgrades++;
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		PurchasableGadgetItem purchasableGadgetItem = (PurchasableGadgetItem)item;
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Water Cannon");
@@ -220,7 +219,6 @@ public static class AllItemEffects
 		{
 			PlayerData.FireWeaponUpgrades++;
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		PurchasableGadgetItem purchasableGadgetItem = (PurchasableGadgetItem)item;
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Torch Cannon");
@@ -241,7 +239,6 @@ public static class AllItemEffects
 		{
 			PlayerData.ElectricWeaponUpgrades++;
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		PurchasableGadgetItem purchasableGadgetItem = (PurchasableGadgetItem)item;
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Electric Cannon");
@@ -258,7 +255,6 @@ public static class AllItemEffects
 		{
 			PlayerData.HasPinWeapon = true;
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		PurchasableGadgetItem purchasableGadgetItem = (PurchasableGadgetItem)item;
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Pin Shooter");
@@ -292,7 +288,6 @@ public static class AllItemEffects
 		{
 			PlayerData.EagleUpgradeTime = PlayerData.EAGLE_UPGRADE_DURATIONS[4];
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Eagle Upgrade");
 		dictionary.Add("TokenCost", upgradableItem.m_tokenCost.ToString());
@@ -329,7 +324,6 @@ public static class AllItemEffects
 		{
 			PlayerData.InvulnerabilityUpgradeTime = PlayerData.INVINCIBILITY_UPGRADE_DURATIONS[5];
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Invulnerability Upgrade");
 		dictionary.Add("TokenCost", upgradableItem.m_tokenCost.ToString());
@@ -366,7 +360,6 @@ public static class AllItemEffects
 		{
 			PlayerData.MagnetUpgradeTime = PlayerData.MAGNETIZER_UPGRADE_DURATIONS[5];
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Magnet Upgrade");
 		dictionary.Add("TokenCost", upgradableItem.m_tokenCost.ToString());
@@ -403,7 +396,6 @@ public static class AllItemEffects
 		{
 			PlayerData.ScoreMultUpgradeTime = PlayerData.SCOREMULTIPLIER_UPGRADE_DURATIONS[5];
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Score Multiplier");
 		dictionary.Add("TokenCost", upgradableItem.m_tokenCost.ToString());
@@ -436,7 +428,6 @@ public static class AllItemEffects
 		{
 			PlayerData.PowerUpFreqChance = 60f;
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Power Up Frequency");
 		dictionary.Add("TokenCost", upgradableItem.m_tokenCost.ToString());
@@ -449,7 +440,6 @@ public static class AllItemEffects
 	public static void BoughtContinueCost(object item = null)
 	{
 		UpgradableItem upgradableItem = (UpgradableItem)item;
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Continue Cost");
 		dictionary.Add("TokenCost", upgradableItem.m_tokenCost.ToString());
@@ -462,7 +452,6 @@ public static class AllItemEffects
 	public static void BoughtJumpStart(object item = null)
 	{
 		PlayerData.JumpStarts++;
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Jump Start");
 		dictionary.Add("NumberOwned", PlayerData.JumpStarts.ToString());
@@ -491,7 +480,6 @@ public static class AllItemEffects
 		{
 			PlayerData.MomoUpgradeLevel = 2;
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Ducky Momo");
 		dictionary.Add("TokenCost", upgradableItem.m_tokenCost.ToString());
@@ -529,7 +517,6 @@ public static class AllItemEffects
 		{
 			PlayerData.BabyFedoraPercent = 30f;
 		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.SoftPurchase);
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
 		dictionary.Add("ItemName", "Baby Head");
 		dictionary.Add("TokenCost", upgradableItem.m_tokenCost.ToString());

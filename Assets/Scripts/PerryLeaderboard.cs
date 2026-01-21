@@ -20,7 +20,6 @@ public class PerryLeaderboard
 
 	public delegate void AddScoreCallback(PerryHighScore score);
 
-	private GPGLeaderboardMetadata m_googleLeaderboard;
 
 	private List<PerryHighScore> m_scores;
 
@@ -40,7 +39,7 @@ public class PerryLeaderboard
 	{
 		get
 		{
-			return m_googleLeaderboard.leaderboardId;
+			return "service removed";
 		}
 	}
 
@@ -48,14 +47,13 @@ public class PerryLeaderboard
 	{
 		get
 		{
-			return m_googleLeaderboard.title;
+			return "service removed";
 		}
 	}
 
 	public PerryLeaderboard(GPGLeaderboardMetadata lb)
 	{
 		Debug.Log("new Android PerryLeaderboard");
-		m_googleLeaderboard = lb;
 		m_scores = new List<PerryHighScore>();
 		m_playerScores = new List<PerryHighScore>();
 		m_combinedOrderedScores = new List<PerryHighScore>();

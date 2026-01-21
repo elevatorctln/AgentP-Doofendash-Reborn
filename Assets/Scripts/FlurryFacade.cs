@@ -22,9 +22,7 @@ public class FlurryFacade : MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-		#if UNITY_ANDROID
-		FlurryAndroid.onEndSession();
-		#endif
+
 	}
 
 	public void Init()
@@ -33,25 +31,15 @@ public class FlurryFacade : MonoBehaviour
 		{
 			_instance = this;
 			API_Key = "SZK7VN6MJN88V8B36C3W";
-			#if UNITY_ANDROID
-			FlurryAndroid.setUserID(SystemInfo.deviceUniqueIdentifier);
-			FlurryAndroid.onStartSession(API_Key, false, false);
-			#endif
 		}
 	}
 
 	public void LogEvent(string eventName, bool isTimed = false)
 	{
-		#if UNITY_ANDROID
-		FlurryAndroid.logEvent(eventName);
-		#endif
 	}
 
 	public void LogEvent(string eventName, Dictionary<string, string> parameters, bool isTimed)
 	{
-		#if UNITY_ANDROID
-		FlurryAndroid.logEvent(eventName, parameters);
-		#endif
 	}
 
 	private string DictionaryToString(Dictionary<string, string> dict)

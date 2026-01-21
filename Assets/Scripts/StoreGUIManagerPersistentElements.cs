@@ -1,4 +1,3 @@
-using PlayHaven;
 using UnityEngine;
 
 public class StoreGUIManagerPersistentElements : MonoBehaviour
@@ -58,7 +57,6 @@ public class StoreGUIManagerPersistentElements : MonoBehaviour
 
 	public void Awake()
 	{
-		PlayHavenManager.instance.OnDismissContent += PlayHavenManagerinstanceOnDismissContentListener;
 	}
 
 	public void Init()
@@ -532,16 +530,7 @@ public class StoreGUIManagerPersistentElements : MonoBehaviour
 		if (Application.internetReachability != NetworkReachability.NotReachable)
 		{
 			GameManager.The.PauseMusic();
-			#if UNITY_ANDROID
-			PlayHavenManager.instance.ContentRequest("more_games");
-			#endif
-			FlurryFacade.Instance.LogEvent("MoreGamesClicked");
 		}
-	}
-
-	public void PlayHavenManagerinstanceOnDismissContentListener(int requestId, DismissType dismissType)
-	{
-		GameManager.The.ResumeMusic();
 	}
 
 	private void OnEnable()

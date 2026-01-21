@@ -214,7 +214,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Game Over")) return;
         
         GameEventManager.TriggerGameOver();
-        Debug.Log("<color=red>⚡ Triggered: Game Over</color>");
+        Debug.Log("<color=red>Triggered: Game Over</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Game State/Trigger Game Pause")]
@@ -223,7 +223,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Game Pause")) return;
         
         GameEventManager.TriggerGamePause();
-        Debug.Log("<color=yellow>⚡ Triggered: Game Pause</color>");
+        Debug.Log("<color=yellow>Triggered: Game Pause</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Game State/Trigger Game Unpause")]
@@ -232,7 +232,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Game Unpause")) return;
         
         GameEventManager.TriggerGameUnPause();
-        Debug.Log("<color=green>⚡ Triggered: Game Unpause</color>");
+        Debug.Log("<color=green>Triggered: Game Unpause</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Game State/Trigger Game Continue")]
@@ -241,7 +241,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Game Continue")) return;
         
         GameEventManager.TriggerGameContinue();
-        Debug.Log("<color=green>⚡ Triggered: Game Continue</color>");
+        Debug.Log("<color=green>Triggered: Game Continue</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Game State/Trigger Game Start")]
@@ -250,7 +250,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Game Start")) return;
         
         GameEventManager.TriggerGameStart();
-        Debug.Log("<color=green>⚡ Triggered: Game Start</color>");
+        Debug.Log("<color=green>Triggered: Game Start</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Invincibility ON")]
@@ -259,7 +259,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Invincibility")) return;
         
         GameEventManager.TriggerInvincibility();
-        Debug.Log("<color=cyan>⚡ Triggered: Invincibility ON</color>");
+        Debug.Log("<color=cyan>Triggered: Invincibility ON</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Invincibility OFF")]
@@ -268,7 +268,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Invincibility OFF")) return;
         
         GameEventManager.TriggerInvincibilityOff();
-        Debug.Log("<color=gray>⚡ Triggered: Invincibility OFF</color>");
+        Debug.Log("<color=gray>Triggered: Invincibility OFF</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Score Multiplier ON")]
@@ -277,7 +277,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Score Multiplier")) return;
         
         GameEventManager.TriggerScoreMultiplier();
-        Debug.Log("<color=yellow>⚡ Triggered: Score Multiplier ON</color>");
+        Debug.Log("<color=yellow>Triggered: Score Multiplier ON</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Score Multiplier OFF")]
@@ -286,7 +286,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Score Multiplier OFF")) return;
         
         GameEventManager.TriggerScoreMultiplierOff();
-        Debug.Log("<color=gray>⚡ Triggered: Score Multiplier OFF</color>");
+        Debug.Log("<color=gray>Triggered: Score Multiplier OFF</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Magnet ON")]
@@ -295,7 +295,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Magnet")) return;
         
         GameEventManager.TriggerPowerUpMagnetOn();
-        Debug.Log("<color=magenta>⚡ Triggered: Magnet ON</color>");
+        Debug.Log("<color=magenta>Triggered: Magnet ON</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Magnet OFF")]
@@ -304,7 +304,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Magnet OFF")) return;
         
         GameEventManager.TriggerPowerUpMagnetOff();
-        Debug.Log("<color=gray>⚡ Triggered: Magnet OFF</color>");
+        Debug.Log("<color=gray>Triggered: Magnet OFF</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Eagle (Feather) ON")]
@@ -313,7 +313,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Eagle")) return;
         
         GameEventManager.TriggerPowerUpFeatherOn();
-        Debug.Log("<color=orange>⚡ Triggered: Eagle Power-Up ON</color>");
+        Debug.Log("<color=orange>Triggered: Eagle Power-Up ON</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Eagle (Feather) OFF")]
@@ -322,7 +322,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Eagle OFF")) return;
         
         GameEventManager.TriggerPowerUpFeatherOff();
-        Debug.Log("<color=gray>⚡ Triggered: Eagle Power-Up OFF</color>");
+        Debug.Log("<color=gray>Triggered: Eagle Power-Up OFF</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Copter Boost ON")]
@@ -331,7 +331,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Copter Boost")) return;
         
         GameEventManager.TriggerCopterBoostOn();
-        Debug.Log("<color=blue>⚡ Triggered: Copter Boost ON</color>");
+        Debug.Log("<color=blue>Triggered: Copter Boost ON</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Power-Ups/Trigger Copter Boost OFF")]
@@ -340,7 +340,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Trigger Copter Boost OFF")) return;
         
         GameEventManager.TriggerCopterBoostOff();
-        Debug.Log("<color=gray>⚡ Triggered: Copter Boost OFF</color>");
+        Debug.Log("<color=gray>Triggered: Copter Boost OFF</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/Start DoofenCruiser Boss Fight")]
@@ -349,7 +349,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Start DoofenCruiser Boss")) return;
         
         GameEventManager.TriggerBossStart(MiniGameManager.BossType.DoofenCruiser);
-        Debug.Log("<color=red>⚡ Triggered: DoofenCruiser Boss Start</color>");
+        Debug.Log("<color=red>Triggered: DoofenCruiser Boss Start</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/Start Balloony Boss Fight")]
@@ -358,7 +358,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Start Balloony Boss")) return;
         
         GameEventManager.TriggerBossStart(MiniGameManager.BossType.Balloony);
-        Debug.Log("<color=red>⚡ Triggered: Balloony Boss Start</color>");
+        Debug.Log("<color=red>Triggered: Balloony Boss Start</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/Damage Boss (10 damage)")]
@@ -367,7 +367,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Damage Boss")) return;
         
         GameEventManager.TriggerBossDamage(10f);
-        Debug.Log("<color=orange>⚡ Triggered: Boss Damage (10)</color>");
+        Debug.Log("<color=orange>Triggered: Boss Damage (10)</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/Damage Boss (50 damage - heavy)")]
@@ -376,7 +376,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Heavy Damage Boss")) return;
         
         GameEventManager.TriggerBossDamage(50f);
-        Debug.Log("<color=red>⚡ Triggered: Boss Heavy Damage (50)</color>");
+        Debug.Log("<color=red>Triggered: Boss Heavy Damage (50)</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/Kill DoofenCruiser Boss")]
@@ -385,7 +385,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Kill DoofenCruiser")) return;
         
         GameEventManager.TriggerBossDead(MiniGameManager.BossType.DoofenCruiser);
-        Debug.Log("<color=green>⚡ Triggered: DoofenCruiser Boss Dead</color>");
+        Debug.Log("<color=green>Triggered: DoofenCruiser Boss Dead</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/Kill Balloony Boss")]
@@ -394,7 +394,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Kill Balloony")) return;
         
         GameEventManager.TriggerBossDead(MiniGameManager.BossType.Balloony);
-        Debug.Log("<color=green>⚡ Triggered: Balloony Boss Dead</color>");
+        Debug.Log("<color=green>Triggered: Balloony Boss Dead</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/End DoofenCruiser Encounter")]
@@ -403,7 +403,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("End DoofenCruiser")) return;
         
         GameEventManager.TriggerBossEnd(MiniGameManager.BossType.DoofenCruiser);
-        Debug.Log("<color=yellow>⚡ Triggered: DoofenCruiser Boss End</color>");
+        Debug.Log("<color=yellow>Triggered: DoofenCruiser Boss End</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/End Balloony Encounter")]
@@ -412,7 +412,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("End Balloony")) return;
         
         GameEventManager.TriggerBossEnd(MiniGameManager.BossType.Balloony);
-        Debug.Log("<color=yellow>⚡ Triggered: Balloony Boss End</color>");
+        Debug.Log("<color=yellow>Triggered: Balloony Boss End</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Boss/Trigger Boss Move To Next MiniGame")]
@@ -421,7 +421,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Boss Move To Next")) return;
         
         GameEventManager.TriggerBossMoveToNextMiniGame();
-        Debug.Log("<color=cyan>⚡ Triggered: Boss Move To Next MiniGame</color>");
+        Debug.Log("<color=cyan>Triggered: Boss Move To Next MiniGame</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/MiniGame/Force Transition to DoofenCruiser")]
@@ -432,7 +432,7 @@ public class EditorDebugTools
         if (MiniGameManager.The() != null)
         {
             MiniGameManager.The().MoveToDoofenCruiser();
-            Debug.Log("<color=red>⚡ Forcing transition to DoofenCruiser!</color>");
+            Debug.Log("<color=red>Forcing transition to DoofenCruiser!</color>");
         }
         else
         {
@@ -448,7 +448,7 @@ public class EditorDebugTools
         if (MiniGameManager.The() != null)
         {
             MiniGameManager.The().MoveToBalloony();
-            Debug.Log("<color=magenta>⚡ Forcing transition to Balloony!</color>");
+            Debug.Log("<color=magenta>Forcing transition to Balloony!</color>");
         }
         else
         {
@@ -487,7 +487,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("Start Hang Glide")) return;
         
         GameEventManager.TriggerHangGlideStart();
-        Debug.Log("<color=blue>⚡ Triggered: Hang Glide Start</color>");
+        Debug.Log("<color=blue>Triggered: Hang Glide Start</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/HangGlide/End Hang Glide")]
@@ -496,7 +496,7 @@ public class EditorDebugTools
         if (!CheckPlayMode("End Hang Glide")) return;
         
         GameEventManager.TriggerHangGlideEnd();
-        Debug.Log("<color=gray>⚡ Triggered: Hang Glide End</color>");
+        Debug.Log("<color=gray>Triggered: Hang Glide End</color>");
     }
 
 
@@ -507,7 +507,7 @@ public class EditorDebugTools
         
         GameEventManager.TriggerTokenHit(100);
         PlayerData.RoundTokens += 100;
-        Debug.Log("<color=yellow>⚡ Triggered: +100 Tokens (Round)</color>");
+        Debug.Log("<color=yellow>Triggered: +100 Tokens (Round)</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Currency/Add 10 Fedoras (in-game)")]
@@ -517,7 +517,7 @@ public class EditorDebugTools
         
         GameEventManager.TriggerFedoraHit(10);
         PlayerData.RoundFedoras += 10;
-        Debug.Log("<color=cyan>⚡ Triggered: +10 Fedoras (Round)</color>");
+        Debug.Log("<color=cyan>Triggered: +10 Fedoras (Round)</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Currency/Add 10000 Score")]
@@ -527,7 +527,7 @@ public class EditorDebugTools
         
         GameEventManager.TriggerScoreUpdate(10000);
         PlayerData.RoundScore += 10000;
-        Debug.Log("<color=green>⚡ Triggered: +10000 Score</color>");
+        Debug.Log("<color=green>Triggered: +10000 Score</color>");
     }
 
     [MenuItem("Tools/Debug/Runtime Events/Status/Log Current Game State")]

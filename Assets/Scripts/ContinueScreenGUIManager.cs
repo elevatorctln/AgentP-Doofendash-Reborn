@@ -219,7 +219,6 @@ public class ContinueScreenGUIManager : MonoBehaviour
 				Dictionary<string, string> dictionary = new Dictionary<string, string>();
 				dictionary.Add("Tokens", PlayerData.RoundTokens.ToString());
 				dictionary.Add("Fedoras", PlayerData.RoundFedoras.ToString());
-				FlurryFacade.Instance.LogEvent("RoundCurrency", dictionary, false);
 				GameEventManager.TriggerGameRestartMenu();
 			}
 		}
@@ -378,85 +377,22 @@ public class ContinueScreenGUIManager : MonoBehaviour
 
 	public void BossRoundDefeatPlacements()
 	{
-		if (m_shouldTriggerPlacement)
-		{
-			if (PlayerData.RoundBossDefeats == 1)
-			{
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.LevelEndWin1);
-				m_shouldTriggerPlacement = false;
-			}
-			if (PlayerData.RoundBossDefeats == 2)
-			{
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.LevelEndWin2);
-				m_shouldTriggerPlacement = false;
-			}
-			if (PlayerData.RoundBossDefeats == 3)
-			{
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.LevelEndWin3);
-				m_shouldTriggerPlacement = false;
-			}
-		}
+		
 	}
 
 	public void BossAllTimeDefeatPlacements()
 	{
-		if (m_shouldTriggerPlacement)
-		{
-			if (PlayerData.AllTimeBossDefeats == 5)
-			{
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.CumulativeWins5);
-				m_shouldTriggerPlacement = false;
-			}
-			if (PlayerData.AllTimeBossDefeats == 10)
-			{
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.CumulativeWins10);
-				m_shouldTriggerPlacement = false;
-			}
-			if (PlayerData.AllTimeBossDefeats == 15)
-			{
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.CumulativeWins15);
-				m_shouldTriggerPlacement = false;
-			}
-		}
+		
 	}
 
 	public void MultiplierPlacements()
 	{
-		if (m_shouldTriggerPlacement)
-		{
-			switch (AllMissionData.TotalScoreMultiplier)
-			{
-			case 3:
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.UserLevelUp3);
-				m_shouldTriggerPlacement = false;
-				break;
-			case 6:
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.UserLevelUp6);
-				m_shouldTriggerPlacement = false;
-				break;
-			case 9:
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.UserLevelUp9);
-				m_shouldTriggerPlacement = false;
-				break;
-			case 12:
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.UserLevelUp12);
-				m_shouldTriggerPlacement = false;
-				break;
-			case 15:
-				PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.UserLevelUp15);
-				m_shouldTriggerPlacement = false;
-				break;
-			}
-		}
+		
 	}
 
 	public void LevelEndPlacements()
 	{
-		if (m_shouldTriggerPlacement && PlayerData.RoundPowerups == 0)
-		{
-			PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.LevelEndNoUpgrade);
-		}
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.LevelEnd);
+		
 	}
 
 	public void CheckPlayHavenPlacements()

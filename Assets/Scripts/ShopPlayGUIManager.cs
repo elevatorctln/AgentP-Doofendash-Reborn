@@ -167,7 +167,6 @@ public class ShopPlayGUIManager : MonoBehaviour
 		HideButtons();
 		MainMenuEventManager.TriggerGoToNextMenu(MainMenuEventManager.MenuState.Store_Menu_Upgrades);
 		FlurryFacade.Instance.LogEvent("StoreClicked");
-		PlayHavenController.ContentRequest(PlayHavenController.PlayHavenPlacement.StoreFromMain);
 		CharSelectGUIManager.The.EnableSelectControls();
 	}
 

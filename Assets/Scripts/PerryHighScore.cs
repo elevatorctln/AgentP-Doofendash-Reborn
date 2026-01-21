@@ -21,8 +21,6 @@ public class PerryHighScore
 
 	private SocialNetwork m_social;
 
-	private GPGScore m_googleScore;
-
 	public bool IsMe
 	{
 		get
@@ -41,9 +39,9 @@ public class PerryHighScore
 		{
 			if (m_social == SocialNetwork.FACEBOOK)
 			{
-				return m_fbScore;
+				return 0;
 			}
-			return m_googleScore.value;
+			return 0;
 		}
 	}
 
@@ -51,19 +49,15 @@ public class PerryHighScore
 	{
 		get
 		{
-			return m_googleScore.formattedScore;
+			return "service removed";
 		}
 	}
 
 	public string PlayerID
 	{
 		get
-		{
-			if (m_social == SocialNetwork.FACEBOOK)
-			{
-				return m_fbId;
-			}
-			return m_googleScore.playerId;
+		{	
+			return "service removed";
 		}
 	}
 
@@ -71,7 +65,7 @@ public class PerryHighScore
 	{
 		get
 		{
-			return (int)m_googleScore.rank;
+			return 0;
 		}
 	}
 
@@ -87,11 +81,7 @@ public class PerryHighScore
 	{
 		get
 		{
-			if (m_social == SocialNetwork.FACEBOOK)
-			{
-				return m_fbName;
-			}
-			return m_googleScore.displayName;
+			return "service removed";
 		}
 	}
 
@@ -109,8 +99,7 @@ public class PerryHighScore
 
 	public PerryHighScore(GPGScore gpgs)
 	{
-		m_googleScore = gpgs;
-		m_social = SocialNetwork.GOOGLE;
+		
 	}
 
 	public void SetFacebook(string faceUrl, string id, int score, string name)
@@ -124,6 +113,6 @@ public class PerryHighScore
 
 	public override string ToString()
 	{
-		return m_googleScore.ToString();
+		return "service removed";
 	}
 }
