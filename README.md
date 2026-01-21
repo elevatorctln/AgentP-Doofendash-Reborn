@@ -18,10 +18,10 @@ https://doofendash.run/
 
 **Screenshots:**
 
-<img width="1080" height="2400" alt="Screenshot_20260120-200604 Agent P" src="https://github.com/user-attachments/assets/20817824-b141-473f-9dc0-fdd65ed3e96f" />
-<img width="1080" height="2400" alt="Screenshot_20260120-200634 Agent P" src="https://github.com/user-attachments/assets/e2459165-9d88-418e-8788-068aa14df1e3" />
-<img width="1080" height="2400" alt="Screenshot_20260120-200741 Agent P" src="https://github.com/user-attachments/assets/634221c7-e6f7-4b17-b14c-5740a7b02529" />
-<img width="1080" height="2400" alt="Screenshot_20260120-201311 Agent P" src="https://github.com/user-attachments/assets/6cb4aa00-7a61-4ce0-8024-09b80776d2be" />
+<img width="240" height="720" alt="Screenshot_20260120-200604 Agent P" src="https://github.com/user-attachments/assets/20817824-b141-473f-9dc0-fdd65ed3e96f" />
+<img width="240" height="720" alt="Screenshot_20260120-200634 Agent P" src="https://github.com/user-attachments/assets/e2459165-9d88-418e-8788-068aa14df1e3" />
+<img width="240" height="720" alt="Screenshot_20260120-200741 Agent P" src="https://github.com/user-attachments/assets/634221c7-e6f7-4b17-b14c-5740a7b02529" />
+<img width="240" height="720" alt="Screenshot_20260120-201311 Agent P" src="https://github.com/user-attachments/assets/6cb4aa00-7a61-4ce0-8024-09b80776d2be" />
 
 
 ----
