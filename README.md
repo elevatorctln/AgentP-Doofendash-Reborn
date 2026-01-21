@@ -16,7 +16,7 @@ https://doofendash.run/
 
 ----
 
-**Screenhots:**
+**Screenshots:**
 
 <img width="1080" height="2400" alt="Screenshot_20260120-200604 Agent P" src="https://github.com/user-attachments/assets/20817824-b141-473f-9dc0-fdd65ed3e96f" />
 <img width="1080" height="2400" alt="Screenshot_20260120-200634 Agent P" src="https://github.com/user-attachments/assets/e2459165-9d88-418e-8788-068aa14df1e3" />
